@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="FunLearnLightTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#B4D8E7</item>
+        <item name="colorPrimaryDark">#56BAEC</item>
+        <item name="colorAccent">#B0E57C</item>
+        <item name="android:colorBackground">#FFF0AA</item>
+        <item name="android:navigationBarColor">#FFAEAE</item>
+    </style>
+</resources>

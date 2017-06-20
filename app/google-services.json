@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "417406499825",
+    "firebase_url": "https://fun-learn-652b6.firebaseio.com",
+    "project_id": "fun-learn-652b6",
+    "storage_bucket": "fun-learn-652b6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417406499825:android:71e5a95a83f1522b",
+        "android_client_info": {
+          "package_name": "anchovy.net.funlearn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417406499825-l1807ttf9lplcrr1unasekpflkidfbdp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "anchovy.net.funlearn",
+            "certificate_hash": "4b6dcc89be6ca35601f6992d39f4caf0ec0d1b6d"
+          }
+        },
+        {
+          "client_id": "417406499825-l77iehh94mjlbtmv6v7g9l8d3f2glte7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgX3F_IPue-yMlPa2ae-zaS067eqmRfI8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "417406499825-l77iehh94mjlbtmv6v7g9l8d3f2glte7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
