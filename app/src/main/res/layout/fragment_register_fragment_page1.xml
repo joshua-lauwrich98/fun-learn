@@ -1,0 +1,170 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="anchovy.net.funlearn.fragments.RegisterFragmentPage1">
+
+    <anchovy.net.funlearn.fonts.LemonMilkFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/login_activity_signup_fragment1_title"
+        android:textSize="20sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:id="@+id/login_activity_signup_fragment1_title" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline2"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="54dp" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline3"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="306dp" />
+
+    <LinearLayout
+        android:id="@+id/login_activity_signup_fragment1_input_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline2"
+        app:layout_constraintRight_toLeftOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/login_activity_signup_fragment1_title">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/login_activity_signup_fragment1_email_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/login_activity_signup_fragment1_email_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_activity_email"
+                android:inputType="textEmailAddress"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/login_activity_signup_fragment1_password_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp">
+
+            <EditText
+                android:id="@+id/login_activity_signup_fragment1_password_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_activity_password"
+                android:inputType="textPassword"
+                android:maxLength="25"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <ProgressBar
+            android:id="@+id/login_activity_login_fragment_proggressbar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="25"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"/>
+
+        <TextView
+            android:id="@+id/login_activity_login_fragment_text_watcher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:text="@string/login_activity_status_weak"/>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/login_activity_signup_fragment1_username_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp">
+
+            <EditText
+                android:id="@+id/login_activity_signup_fragment1_username_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_activity_username"
+                android:inputType="textPersonName"
+                android:maxLength="25"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/login_activity_signup_fragment1_fullname_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp">
+
+            <EditText
+                android:id="@+id/login_activity_signup_fragment1_fullname_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_activity_fullname"
+                android:inputType="textPersonName"
+                android:maxLength="35"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/login_activity_signup_fragment1_next_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/login_activity_next_button_background"
+            android:text="@string/login_activity_next" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/login_activity_signup_fragment1_login_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/transparent"
+        android:text="@string/login_activity_already_have_account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+
+    <ImageButton
+        android:id="@+id/login_activity_signup_fragment1_hide_show_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="70dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintRight_toRightOf="@+id/login_activity_signup_fragment1_input_layout"
+        app:layout_constraintTop_toTopOf="@+id/login_activity_signup_fragment1_input_layout"
+        app:srcCompat="@drawable/visibility_icon" />
+
+
+</android.support.constraint.ConstraintLayout>

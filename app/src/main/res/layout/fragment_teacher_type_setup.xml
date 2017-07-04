@@ -1,0 +1,60 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="anchovy.net.funlearn.fragments.TeacherTypeSetupFragment">
+
+
+    <TextView
+        android:id="@+id/login_activity_teacher_type_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/login_activity_school_code_title"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/login_activity_teacher_type_code_input_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_activity_teacher_type_title">
+
+        <EditText
+            android:id="@+id/login_activity_teacher_type_code_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/login_activity_code_school"
+            android:ems="10"
+            android:minEms="10"
+            android:maxEms="10"
+            android:maxLength="10"
+            android:inputType="textCapCharacters"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/login_activity_teacher_type_code_explanation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/login_activity_code_school_what"
+        android:textStyle="bold"
+        android:padding="7dp"
+        android:background="@drawable/login_activity_next_button_background"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_activity_teacher_type_code_input_layout" />
+</android.support.constraint.ConstraintLayout>

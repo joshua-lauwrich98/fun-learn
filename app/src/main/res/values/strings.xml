@@ -1,3 +1,77 @@
 <resources>
     <string name="app_name">Fun Learn</string>
+
+    <!-- Get Started Activity -->
+    <string name="get_started_activity_sample">CONTOH</string>
+    <string name="get_started_activity_get_started">MULAI !</string>
+
+    <!-- Login Activity -->
+    <string name="login_activity_email">Email</string>
+    <string name="login_activity_password">Kata Sandi (min 8 char)</string>
+    <string name="login_activity_signin">Masuk</string>
+    <string name="login_activity_forgot_password">Lupa kata sandi?</string>
+    <string name="login_activity_create_account">Buat akun baru?</string>
+    <string name="login_activity_status_weak">LEMAH</string>
+    <string name="login_activity_status_normal">CUKUP</string>
+    <string name="login_activity_status_strong">KUAT</string>
+    <string name="login_activity_error_layout_email">Tolong masukan email yang valid</string>
+    <string name="login_activity_error_email">Dibutuhkan email yang valid</string>
+    <string name="login_activity_error_layout_password">Masukkan password</string>
+    <string name="login_activity_error_layout_password2">Masukkan password lebih dari 8 karakter</string>
+    <string name="login_activity_error_layout_password3">Masukkan password tidak lebih dari 25 karakter</string>
+    <string name="login_activity_internet_error">Gagal tersambung ke server!</string>
+    <string name="login_activity_signin_status">Mulai masuk…</string>
+    <string name="login_activity_signup_fragment1_title">Buat Akun Anda</string>
+    <string name="login_activity_fullname">Nama Lengkap</string>
+    <string name="login_activity_username">Nama Pengguna</string>
+    <string name="login_activity_next">Selanjutnya</string>
+    <string name="login_activity_already_have_account">Sudah punya akun?</string>
+    <string name="login_activity_show_hide_password_desc">tunjukkan/sembunyikan password</string>
+    <string name="login_activity_error_layout_username">Masukkan username</string>
+    <string name="login_activity_error_layout_fullname">Masukkan nama lengkap anda</string>
+    <string name="login_activity_error_layout_fullname2">Dibutuhkan nama yang valid</string>
+    <string name="login_activity_signup">Buat akun</string>
+    <string name="login_activity_student">MURID</string>
+    <string name="login_activity_jenjang">Jenjang *</string>
+    <string name="login_activity_kelas">Kelas *</string>
+    <string name="login_activity_school_code_title">Isikan kode sekolah anda : *</string>
+    <string name="login_activity_code_school">kode sekolah</string>
+    <string name="login_activity_code_school_what">Apa itu kode sekolah?</string>
+    <string name="login_activity_teacher">GURU</string>
+    <string name="login_activity_note">* Tolong isikan data dengan benar! Informasi ini digunakan untuk menentukan dan mengatur fitur-fitur pada aplikasi ini.</string>
+    <string name="login_activity_code_error">Tolong isi kode sekolah dengan benar</string>
+    <string name="login_activity_credential_error">Email atau password salah</string>
+    <string name="login_activity_code_school_explanation">Kode sekolah adalah kode unik dari tiap sekolah untuk membuktikan anda adalah seorang guru. Silahkan tanyakan kepala sekolah anda untuk mendapatkan kode sekolah atau daftarkan sekolah anda ke email kami sup.funlearn@gmail.com</string>
+    <string name="login_activity_reset_password_title">Mengatur Ulang Kata Sandi</string>
+    <string name="login_activity_confirm">Konfirmasi</string>
+    <string name="login_activity_forgot_password_success">Sebuah email telah dikirim ke %s. Ikuti panduan pada email tersebut. Jika Anda tidak menerima email dalam waktu 1 jam, silahkan hubungi kami di\nEmail : sup.funlearn@gmail.com\nPhone : +62 813 2217 2750</string>
+    <string name="login_activity_forgot_password_not_match">Email dan nama pengguna tidak sesuai</string>
+    <string-array name="school_array_account_type">
+        <item>SD</item>
+        <item>SMP</item>
+        <item>SMA</item>
+    </string-array>
+    <string-array name="sd_array_account_type">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string-array name="smp_sma_array_account_type">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <!-- Main Activity Student -->
+    <string name="main_activity_student_play1_choose_mode">PILIH MODE</string>
+    <string name="main_activity_student_play1_pvp">PVP</string>
+    <string name="main_activity_student_play1_play_with_friends">Bermain Bersama Teman</string>
+    <string name="main_activity_student_play1_leaderboard">Papan Peringkat</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#B4D8E7</color>
+    <color name="colorPrimaryDark">#56BAEC</color>
+    <color name="colorAccent">#B0E57C</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="password_weak">#ff3232</color>
+    <color name="password_normal">#f4bc42</color>
+    <color name="password_strong">#91ff30</color>
 
     <color name="navigationBar">#FFAEAE</color>
+    <color name="background">#FFF0AA</color>
 </resources>

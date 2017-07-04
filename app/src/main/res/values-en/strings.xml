@@ -1,3 +1,74 @@
 <resources>
     <string name="app_name">Fun Learn</string>
+
+    <!-- Get Started Activity -->
+    <string name="get_started_activity_sample">SAMPLE</string>
+    <string name="get_started_activity_get_started">GET STARTED !</string>
+
+    <!-- Login Activity -->
+    <string name="login_activity_email">Email</string>
+    <string name="login_activity_password">Password (min 8 char)</string>
+    <string name="login_activity_signin">Sign in</string>
+    <string name="login_activity_forgot_password">Forgot password?</string>
+    <string name="login_activity_create_account">Create new account?</string>
+    <string name="login_activity_status_weak">WEAK</string>
+    <string name="login_activity_status_normal">NORMAL</string>
+    <string name="login_activity_status_strong">STRONG</string>
+    <string name="login_activity_error_layout_email">Please enter a valid email</string>
+    <string name="login_activity_error_email">Valid input required</string>
+    <string name="login_activity_error_layout_password">Enter a password</string>
+    <string name="login_activity_error_layout_password2">Please insert more than 8 character</string>
+    <string name="login_activity_error_layout_password3">Please insert not more than 25 character</string>
+    <string name="login_activity_internet_error">Failed to connect to server!</string>
+    <string name="login_activity_signin_status">Starting sign in…</string>
+    <string name="login_activity_signup_fragment1_title">Create Your Account</string>
+    <string name="login_activity_fullname">Fullname</string>
+    <string name="login_activity_username">Username</string>
+    <string name="login_activity_next">Next</string>
+    <string name="login_activity_already_have_account">Already have an account?</string>
+    <string name="login_activity_show_hide_password_desc">show/hide password</string>
+    <string name="login_activity_error_layout_username">Please enter an username</string>
+    <string name="login_activity_error_layout_fullname">Please enter your full name</string>
+    <string name="login_activity_error_layout_fullname2">Valid name required</string>
+    <string name="login_activity_signup">Sign up</string>
+    <string name="login_activity_student">STUDENT</string>
+    <string name="login_activity_jenjang">School *</string>
+    <string name="login_activity_kelas">Grade *</string>
+    <string name="login_activity_school_code_title">Please insert your school code : *</string>
+    <string name="login_activity_code_school">school code</string>
+    <string name="login_activity_code_school_what">What is school code?</string>
+    <string name="login_activity_teacher">TEACHER</string>
+    <string name="login_activity_note">* Please submit only the correct information! The features in this application will be set according to these information.</string>
+    <string name="login_activity_code_error">Please insert valid school code</string>
+    <string name="login_activity_credential_error">Email and password not match</string>
+    <string name="login_activity_code_school_explanation">School code is a code unique to each school for teachers confirmation. Please refer to the school\'s principal or headmaster to get your school code, or register your school through our email sup.funlearn@gmail.com</string>
+    <string name="login_activity_reset_password_title">Reset Password</string>
+    <string name="login_activity_confirm">Confirm</string>
+    <string name="login_activity_forgot_password_success">Email has been sent to %s. Please follow the guide in the email. If you did not receive an email regarding this issue in 1 hour, please contact us at\nEmail : sup.funlearn@gmail.com\nPhone : +62 813 2217 2750</string>
+    <string name="login_activity_forgot_password_not_match">Email and username not match</string>
+    <string-array name="school_array_account_type">
+        <item>SD</item>
+        <item>SMP</item>
+        <item>SMA</item>
+    </string-array>
+    <string-array name="sd_array_account_type">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string-array name="smp_sma_array_account_type">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <!-- Main Activity Student -->
+    <string name="main_activity_student_play1_choose_mode">CHOOSE MODE</string>
+    <string name="main_activity_student_play1_pvp">PVP</string>
+    <string name="main_activity_student_play1_play_with_friends">Play with Friends</string>
+    <string name="main_activity_student_play1_leaderboard">Leader Board</string>
+
 </resources>
