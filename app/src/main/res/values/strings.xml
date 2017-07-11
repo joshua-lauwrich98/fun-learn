@@ -70,8 +70,18 @@
     <string name="main_activity_student_play1_pvp">PVP</string>
     <string name="main_activity_student_play1_play_with_friends">Bermain Bersama Teman</string>
     <string name="main_activity_student_play1_leaderboard">Papan Peringkat</string>
+    <string name="main_activity_student_play2_back_button">KEMBALI</string>
+    <string name="main_activity_student_play2_title">PILIH JENIS PERMAINAN</string>
+    <string name="main_activity_student_play2_classic">Klasik</string>
+    <string name="main_activity_student_play2_time_trial">Time Trial</string>
+    <string name="main_activity_student_play2_warning">Anda membatalkan permainan sebelumnya! Anda tidak diperkenankan bermain selama %d detik.</string>
+    <string name="main_activity_student_tab_title1">Personal</string>
+    <string name="main_activity_student_tab_title2">Main</string>
+    <string name="main_activity_student_tab_title3">Kelas</string>
+    <string name="main_activity_student_tab_title4">Profil</string>
+    <string name="main_activity_student_play_cancel">Batal</string>
+    <string name="main_activity_student_play_time_title">Mencari lawan :</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
 </resources>

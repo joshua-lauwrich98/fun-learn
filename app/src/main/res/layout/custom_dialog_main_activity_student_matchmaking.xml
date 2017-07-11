@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#3E80B4"
+    android:orientation="vertical"
+    android:paddingBottom="20dp"
+    android:paddingEnd="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingStart="20dp"
+    android:gravity="center"
+    android:paddingTop="10dp">
+
+    <TextView
+        android:id="@+id/main_activity_student_dialog_matchmaking_timer_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:text=""
+        android:clickable="true"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <anchovy.net.funlearn.fonts.LemonMilkFontButton
+            android:id="@+id/main_activity_student_dialog_matchmaking_ready_button"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:background="#1cd86d"
+            android:clickable="true"
+            android:text="Siap"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="5dp"/>
+
+        <anchovy.net.funlearn.fonts.LemonMilkFontButton
+            android:id="@+id/main_activity_student_dialog_matchmaking_cancel_button"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:background="#d84b1c"
+            android:clickable="true"
+            android:textSize="18sp"
+            android:text="Batalkan"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="5dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:background="@drawable/status_not_ready"
+            android:id="@+id/main_activity_student_dialog_matchmaking_self_ready"/>
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:background="@drawable/status_not_ready"
+            android:id="@+id/main_activity_student_dialog_matchmaking_opponent_ready"/>
+
+    </LinearLayout>
+
+</LinearLayout>

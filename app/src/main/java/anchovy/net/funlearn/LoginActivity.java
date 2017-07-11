@@ -2,8 +2,10 @@ package anchovy.net.funlearn;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -43,11 +45,17 @@ public class LoginActivity extends AppCompatActivity implements StudentTypeSetup
     private static final String PASSWORD = "password";
     private static final String USERNAME = "username";
     private static final String FULLNAME = "fullname";
+    private static final String THEME = "theme";
 
     private Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences preference = PreferenceManager.getDefaultSharedPreferences(this);
+        int theme = preference.getInt(THEME, 1);
+
+        if (theme == 1) setTheme(R.style.FunLearnLightTheme);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -106,6 +114,7 @@ public class LoginActivity extends AppCompatActivity implements StudentTypeSetup
         final String kodeX = kode;
         final String jenjangX = jenjang;
         final String kelasX = kelas;
+        final String photo = "https://firebasestorage.googleapis.com/v0/b/fun-learn-652b6.appspot.com/o/anchovy%20logo.png?alt=media&token=cad3c2fb-8543-4b5f-b7ee-c4372ec0809c";
 
         if (firebaseAuth.getCurrentUser() == null) {
             final String email = args.getString(EMAIL);
@@ -126,18 +135,25 @@ public class LoginActivity extends AppCompatActivity implements StudentTypeSetup
                     databaseReference.child("password").setValue(password);
                     databaseReference.child("username").setValue(username);
                     databaseReference.child("fullname").setValue(fullname);
+                    databaseReference.child("photo").setValue(photo);
+
+                    String type = "";
 
                     if (kode == null) {
                         databaseReference.child("acountType").setValue("student");
                         databaseReference.child("jenjang").setValue(jenjangX);
                         databaseReference.child("kelas").setValue(kelasX);
                         databaseReference.child("code").setValue("null");
+                        type = "student";
                     } else {
                         databaseReference.child("acountType").setValue("teacher");
                         databaseReference.child("code").setValue(kodeX);
                         databaseReference.child("jenjang").setValue("null");
                         databaseReference.child("kelas").setValue("null");
+                        type = "teacher";
                     }
+
+                    assignStatistic(email, username, fullname, type, photo);
 
                     sendWelcomeEmail();
 
@@ -171,18 +187,25 @@ public class LoginActivity extends AppCompatActivity implements StudentTypeSetup
             databaseReference.child("password").setValue(password);
             databaseReference.child("username").setValue(username);
             databaseReference.child("fullname").setValue(fullname);
+            databaseReference.child("photo").setValue(photo);
+
+            String type = "";
 
             if (kode == null) {
                 databaseReference.child("acountType").setValue("student");
                 databaseReference.child("jenjang").setValue(jenjangX);
                 databaseReference.child("kelas").setValue(kelasX);
                 databaseReference.child("code").setValue("null");
+                type = "student";
             } else {
                 databaseReference.child("acountType").setValue("teacher");
                 databaseReference.child("code").setValue(kodeX);
                 databaseReference.child("jenjang").setValue("null");
                 databaseReference.child("kelas").setValue("null");
+                type = "teacher";
             }
+
+            assignStatistic(email, username, fullname, type, photo);
 
             sendWelcomeEmail();
 
@@ -290,5 +313,34 @@ public class LoginActivity extends AppCompatActivity implements StudentTypeSetup
         protected void onPostExecute(String string) {
             Toast.makeText(getApplicationContext(), "Message sent!", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void assignStatistic (String email, String username, String fullname, String type, String photo) {
+        DatabaseReference statistic = FirebaseDatabase.getInstance().getReference().child("Statistic").child(firebaseAuth.getCurrentUser().getUid());
+        statistic.child("email").setValue(email);
+        statistic.child("username").setValue(username);
+        statistic.child("fullname").setValue(fullname);
+        statistic.child("type").setValue(type);
+        statistic.child("photo").setValue(photo);
+        statistic.child("uid").setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        statistic.child("totalGames").setValue(0);
+        statistic.child("totalWin").setValue(0);
+        statistic.child("totalLose").setValue(0);
+        statistic.child("totalExercise").setValue(0);
+        statistic.child("pvpBestScore").setValue(0);
+        statistic.child("timeTrialBestScore").setValue(0);
+        statistic.child("totalLearn").setValue(0);
+        statistic.child("pvpTotalGames").setValue(0);
+        statistic.child("pvpTotalWin").setValue(0);
+        statistic.child("pvpTotalLose").setValue(0);
+        statistic.child("pvpAnswer").setValue(0);
+        statistic.child("pvpAnswerTrue").setValue(0);
+        statistic.child("pvpAnswerFalse").setValue(0);
+        statistic.child("timeTrialTotalGames").setValue(0);
+        statistic.child("timeTrialTotalWin").setValue(0);
+        statistic.child("timeTrialTotalLose").setValue(0);
+        statistic.child("timeTrialAnswer").setValue(0);
+        statistic.child("timeTrialAnswerTrue").setValue(0);
+        statistic.child("timeTrialAnswerFalse").setValue(0);
     }
 }

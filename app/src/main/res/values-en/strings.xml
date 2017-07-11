@@ -70,5 +70,15 @@
     <string name="main_activity_student_play1_pvp">PVP</string>
     <string name="main_activity_student_play1_play_with_friends">Play with Friends</string>
     <string name="main_activity_student_play1_leaderboard">Leader Board</string>
-
+    <string name="main_activity_student_play2_back_button">BACK</string>
+    <string name="main_activity_student_play2_title">CHOOSE GAME TYPE</string>
+    <string name="main_activity_student_play2_classic">Classic</string>
+    <string name="main_activity_student_play2_time_trial">Time Trial</string>
+    <string name="main_activity_student_play2_warning">You cancelled the last match! You wont be able to play within %d seconds.</string>
+    <string name="main_activity_student_tab_title1">Personal</string>
+    <string name="main_activity_student_tab_title2">Play</string>
+    <string name="main_activity_student_tab_title3">Class</string>
+    <string name="main_activity_student_tab_title4">Profile</string>
+    <string name="main_activity_student_play_cancel">Cancel</string>
+    <string name="main_activity_student_play_time_title">Finding opponent :</string>
 </resources>

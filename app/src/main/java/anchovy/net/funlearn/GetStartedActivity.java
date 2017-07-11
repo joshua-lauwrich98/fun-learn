@@ -1,7 +1,9 @@
 package anchovy.net.funlearn;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -26,9 +28,18 @@ public class GetStartedActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
 
+    private static final String THEME = "theme";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+        SharedPreferences preference = PreferenceManager.getDefaultSharedPreferences(this);
+        int theme = preference.getInt(THEME, 1);
+
+        if (theme == 1) setTheme(R.style.FunLearnLightTheme);
+
         setContentView(R.layout.activity_get_started);
 
         if (Build.VERSION.SDK_INT >= 23) {

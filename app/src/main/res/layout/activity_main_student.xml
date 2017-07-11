@@ -15,10 +15,12 @@
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
+        android:visibility="visible"
         android:paddingTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        android:animateLayoutChanges="true">
 
         <android.support.design.widget.TabLayout
             android:id="@+id/main_activity_tabs"

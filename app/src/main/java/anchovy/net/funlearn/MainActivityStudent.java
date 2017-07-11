@@ -1,25 +1,23 @@
 package anchovy.net.funlearn;
 
-import android.content.Intent;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.content.SharedPreferences;
 import android.os.Build;
-import android.support.annotation.NonNull;
+import android.preference.PreferenceManager;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
-import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import anchovy.net.funlearn.fragments.MainActivityContainerFragment;
 
@@ -28,11 +26,24 @@ public class MainActivityStudent extends AppCompatActivity {
     private int [] iconData;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager viewPager;
+    private static final String THEME = "theme";
+    private AppBarLayout barLayout;
+    private int high;
+    private int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        SharedPreferences preference = PreferenceManager.getDefaultSharedPreferences(this);
+        int theme = preference.getInt(THEME, 1);
+
+        if (theme == 1){
+            setTheme(R.style.FunLearnLightTheme);
+        } else {
+            setTheme(R.style.AppTheme);
+        }
+
+        setContentView(R.layout.activity_main_student);
 
         if (Build.VERSION.SDK_INT >= 23) {
             getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar, getTheme()));
@@ -50,14 +61,55 @@ public class MainActivityStudent extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         viewPager = (ViewPager) findViewById(R.id.main_activity_view_pager_container);
         viewPager.setAdapter(mSectionsPagerAdapter);
-        viewPager.setCurrentItem(0);
+        viewPager.setCurrentItem(position);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.main_activity_tabs);
         tabLayout.setupWithViewPager(viewPager);
+//        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+//            @Override
+//            public void onTabSelected(TabLayout.Tab tab) {
+//                position = tab.getPosition();
+//            }
+//
+//            @Override
+//            public void onTabUnselected(TabLayout.Tab tab) {
+//
+//            }
+//
+//            @Override
+//            public void onTabReselected(TabLayout.Tab tab) {
+//
+//            }
+//        });
 
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             tabLayout.getTabAt(i).setIcon(iconData[i]);
         }
+
+        barLayout = (AppBarLayout)findViewById(R.id.main_activity_app_bar);
+    }
+
+    public void hideAppBar () {
+        high = barLayout.getHeight();
+        barLayout.animate().translationY(barLayout.getHeight())
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        super.onAnimationEnd(animation);
+                        barLayout.setVisibility(View.GONE);
+                    }
+                }).start();
+    }
+
+    public void showAppBar () {
+        barLayout.animate().translationY(barLayout.getHeight() - barLayout.getMeasuredHeight())
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        super.onAnimationEnd(animation);
+                        barLayout.setVisibility(View.VISIBLE);
+                    }
+                }).start();
     }
 
     class SectionsPagerAdapter extends FragmentStatePagerAdapter {
@@ -95,15 +147,29 @@ public class MainActivityStudent extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Personal";
+                    return getResources().getString(R.string.main_activity_student_tab_title1);
                 case 1:
-                    return "Main";
+                    return getResources().getString(R.string.main_activity_student_tab_title2);
                 case 2:
-                    return "Kelas";
+                    return getResources().getString(R.string.main_activity_student_tab_title3);
                 case 3:
-                    return "Profil";
+                    return getResources().getString(R.string.main_activity_student_tab_title4);
             }
             return null;
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseDatabase.getInstance().getReference().child("Statistic").child("status").setValue("online");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        FirebaseDatabase.getInstance().getReference().child("Statistic").child("status").setValue("offline");
     }
 }

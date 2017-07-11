@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import anchovy.net.funlearn.MainActivityStudent;
 import anchovy.net.funlearn.R;
@@ -42,25 +43,26 @@ public class MainActivityContainerFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_main_activity_container, container, false);
 
+//        Toast.makeText(getActivity(), jenis, Toast.LENGTH_SHORT).show();
         switch (this.jenis) {
             case "personal" :
                 getChildFragmentManager().beginTransaction()
-                        .add(R.id.main_activity_student_frame_root, new PersonalFragment1(), "personal student root")
+                        .replace(R.id.main_activity_student_frame_root, new PersonalFragment1(), "personal student root")
                         .commit();
                 break;
             case "play" :
                 getChildFragmentManager().beginTransaction()
-                        .add(R.id.main_activity_student_frame_root, new PlayFragment1(), "personal student root")
+                        .replace(R.id.main_activity_student_frame_root, new PlayFragment1(), "play student root")
                         .commit();
                 break;
             case "class" :
                 getChildFragmentManager().beginTransaction()
-                        .add(R.id.main_activity_student_frame_root, new ClassFragment1(), "personal student root")
+                        .replace(R.id.main_activity_student_frame_root, new ClassFragment1(), "class student root")
                         .commit();
                 break;
             case "profil" :
                 getChildFragmentManager().beginTransaction()
-                        .add(R.id.main_activity_student_frame_root, new ProfilFragment1(), "personal student root")
+                        .replace(R.id.main_activity_student_frame_root, new ProfilFragment1(), "profile student root")
                         .commit();
                 break;
         }
@@ -68,4 +70,8 @@ public class MainActivityContainerFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
 }

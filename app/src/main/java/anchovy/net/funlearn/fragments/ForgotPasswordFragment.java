@@ -178,6 +178,9 @@ public class ForgotPasswordFragment extends Fragment implements View.OnClickList
                     password = password1;
                     String username1 = data[2].substring(10);
                     uid = Long.toHexString(Double.doubleToLongBits(Math.random()));
+//                    Toast.makeText(getActivity(), email1, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), password1, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), username1, Toast.LENGTH_SHORT).show();
 //                    final FirebaseAuth firebase = FirebaseAuth.getInstance();
 //                    firebase.signInWithEmailAndPassword(email1, password1).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
 //                        @Override
