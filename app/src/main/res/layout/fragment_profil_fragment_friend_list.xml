@@ -1,0 +1,63 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context="anchovy.net.funlearn.fragments.ProfilFragmentFriendList">
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_person_add_black_24dp"
+        android:scaleType="fitXY"
+        android:id="@+id/main_activity_profile_fragment_add_friend_button"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="18dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="search"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <com.miguelcatalan.materialsearchview.MaterialSearchView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="textAutoComplete"
+        android:textColor="@color/black"
+        app:searchBackIcon="@drawable/ic_search_black_24dp"
+        android:id="@+id/main_activity_profile_fragment_search_friend_input"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintRight_toLeftOf="@+id/main_activity_profile_fragment_add_friend_button"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <!--<ImageView-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="30dp"-->
+        <!--android:src="@drawable/ic_search_black_24dp"-->
+        <!--android:tint="#bcbcbc"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--app:layout_constraintRight_toLeftOf="@+id/main_activity_profile_fragment_add_friend_button"-->
+        <!--android:layout_marginRight="8dp"-->
+        <!--android:id="@+id/main_activity_profile_fragment_" />-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/main_activity_profile_fragment_friend_list_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_below="@id/main_activity_profile_fragment_add_friend_button"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
+        android:background="#00000000"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_profile_fragment_search_friend_input">
+
+    </android.support.v7.widget.RecyclerView>
+
+</android.support.constraint.ConstraintLayout>

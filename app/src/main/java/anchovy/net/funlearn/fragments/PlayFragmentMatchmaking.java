@@ -231,15 +231,18 @@ public class PlayFragmentMatchmaking extends Fragment implements View.OnClickLis
                     opTemp.setValue(null);
                     myTemp.setValue(null);
                     if (mode.equals("klasik")) {
-                        FirebaseDatabase.getInstance().getReference().child("Klasik").child(uid).setValue("no");
-                        FirebaseDatabase.getInstance().getReference().child("Klasik").child(opKey).setValue("no");
+                        FirebaseDatabase.getInstance().getReference().child("Klasik").child(uid).setValue(null);
+                        FirebaseDatabase.getInstance().getReference().child("Klasik").child(opKey).setValue(null);
                     } else {
-                        FirebaseDatabase.getInstance().getReference().child("Time Trial").child(uid).setValue("no");
-                        FirebaseDatabase.getInstance().getReference().child("Time Trial").child(opKey).setValue("no");
+                        FirebaseDatabase.getInstance().getReference().child("Time Trial").child(uid).setValue(null);
+                        FirebaseDatabase.getInstance().getReference().child("Time Trial").child(opKey).setValue(null);
                     }
 
                     dialog.dismiss();
-                    getActivity().getSupportFragmentManager().beginTransaction()
+                    if (!getFragmentManager().popBackStackImmediate()) getActivity().onBackPressed();
+                    MainActivityStudent acti = (MainActivityStudent)getParentFragment().getActivity();
+                    acti.showAppBar();
+                    getChildFragmentManager().beginTransaction()
                             .replace(R.id.main_activity_student_frame_root, PlayFragment1.newInstance("abandon"))
                             .commit();
                 }
@@ -248,17 +251,17 @@ public class PlayFragmentMatchmaking extends Fragment implements View.OnClickLis
                     opTemp.setValue(null);
                     myTemp.setValue(null);
                     if (mode.equals("klasik")) {
-                        FirebaseDatabase.getInstance().getReference().child("Klasik").child(uid).setValue("no");
-                        FirebaseDatabase.getInstance().getReference().child("Klasik").child(opKey).setValue("no");
+                        FirebaseDatabase.getInstance().getReference().child("Klasik").child(uid).setValue(null);
+                        FirebaseDatabase.getInstance().getReference().child("Klasik").child(opKey).setValue(null);
                     } else {
-                        FirebaseDatabase.getInstance().getReference().child("Time Trial").child(uid).setValue("no");
-                        FirebaseDatabase.getInstance().getReference().child("Time Trial").child(opKey).setValue("no");
+                        FirebaseDatabase.getInstance().getReference().child("Time Trial").child(uid).setValue(null);
+                        FirebaseDatabase.getInstance().getReference().child("Time Trial").child(opKey).setValue(null);
                     }
 
-                    timer.setBase(currentTime*1000);
-                    timer.start();
-
                     dialog.dismiss();
+                    if (!getFragmentManager().popBackStackImmediate()) getActivity().onBackPressed();
+                    MainActivityStudent acti = (MainActivityStudent)getParentFragment().getActivity();
+                    acti.showAppBar();
                 }
 
                 Toast.makeText(getActivity(), "SUCCESS", Toast.LENGTH_SHORT).show();

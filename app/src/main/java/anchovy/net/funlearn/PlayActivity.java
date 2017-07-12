@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 public class PlayActivity extends AppCompatActivity {
@@ -56,7 +57,8 @@ public class PlayActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                getFragmentManager().beginTransaction().replace(R.id.play_activity_container, new PVPKlasikPlayActiDefaultTempFragment()).commit();
+                text.setVisibility(View.GONE);
+//                getFragmentManager().beginTransaction().replace(R.id.play_activity_frame_root_container, new PVPKlasikPlayActiDefaultTempFragment()).commit();
             }
         }.start();
 

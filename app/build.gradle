@@ -44,8 +44,10 @@ dependencies {
     compile 'com.google.android.gms:play-services-auth:11.0.1'
     compile 'com.google.android.gms:play-services-wallet:11.0.1'
     compile 'com.github.silvestrpredko:dot-progress-bar:1.1'
+    compile 'com.miguelcatalan:materialsearchview:1.4.0'
     testCompile 'junit:junit:4.12'
 }
+
 
 
 
