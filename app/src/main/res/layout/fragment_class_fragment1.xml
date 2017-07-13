@@ -5,17 +5,17 @@
     android:layout_height="match_parent"
     tools:context="anchovy.net.funlearn.fragments.ClassFragment1">
 
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="83dp"
-        android:layout_marginStart="66dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1" />
+    <!--<TextView-->
+        <!--android:id="@+id/textView3"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:focusable="false"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--android:layout_marginLeft="83dp"-->
+        <!--android:layout_marginStart="66dp"-->
+        <!--android:text="TextView"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--tools:layout_constraintBottom_creator="1"-->
+        <!--tools:layout_constraintLeft_creator="1" />-->
 </android.support.constraint.ConstraintLayout>
