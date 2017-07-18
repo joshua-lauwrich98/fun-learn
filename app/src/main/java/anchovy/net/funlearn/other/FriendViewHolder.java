@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import anchovy.net.funlearn.R;
@@ -40,8 +42,20 @@ public class FriendViewHolder extends RecyclerView.ViewHolder {
         this.username.setText(username);
     }
 
-    public void setImage (Context context, String url) {
-        Picasso.with(context).load(url).into(photo);
+    public void setImage (final Context context, final String url) {
+        Picasso.with(context).load(url).networkPolicy(NetworkPolicy.OFFLINE).into(photo, new Callback() {
+            @Override
+            public void onSuccess() {
+
+            }
+
+            @Override
+            public void onError() {
+
+                Picasso.with(context).load(url).into(photo);
+
+            }
+        });
     }
 
     public void setIcon (String status) {

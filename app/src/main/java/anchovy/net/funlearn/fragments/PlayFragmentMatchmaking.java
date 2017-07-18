@@ -48,7 +48,6 @@ public class PlayFragmentMatchmaking extends Fragment implements View.OnClickLis
     private DatabaseReference databaseReference;
 
     private long currentTime;
-    private boolean myAbandon, opAbandon;
 
     public PlayFragmentMatchmaking() {
         // Required empty public constructor
@@ -89,9 +88,6 @@ public class PlayFragmentMatchmaking extends Fragment implements View.OnClickLis
         timer = (Chronometer) view.findViewById(R.id.main_activity_student_play_fragment_matchmaking_chronometer);
         startTimer();
 
-        opAbandon = false;
-        myAbandon = false;
-
         return view;
     }
 
@@ -114,7 +110,7 @@ public class PlayFragmentMatchmaking extends Fragment implements View.OnClickLis
 
                                 if (!key.equals(uid) && value.equals("yes")) {
                                     opKey = key;
-                                    databaseReference.child(uid).setValue("no");
+                                    databaseReference.child(uid).setValue(null);
                                     FirebaseDatabase.getInstance().getReference().child("Temp").child(key).setValue(key);
                                     FirebaseDatabase.getInstance().getReference().child("Temp").child(uid).setValue("no");
                                     timer.stop();
@@ -166,117 +162,147 @@ public class PlayFragmentMatchmaking extends Fragment implements View.OnClickLis
     }
 
     private void showDialog() {
-        final android.support.v4.app.DialogFragment dialog = new DialogFragment();
-        View view = dialog.getView();
+        final DialogFragment dialog = CustomDialogReady.newInstance(opKey, mode);
         dialog.setCancelable(false);
-
-        final TextView opStat = (TextView)view.findViewById(R.id.main_activity_student_dialog_matchmaking_opponent_ready);
-        final TextView myStat = (TextView)view.findViewById(R.id.main_activity_student_dialog_matchmaking_self_ready);
-        final TextView text = (TextView)view.findViewById(R.id.main_activity_student_dialog_matchmaking_timer_text);
-        final Button ready = (Button)view.findViewById(R.id.main_activity_student_dialog_matchmaking_ready_button);
-        final Button cancel = (Button)view.findViewById(R.id.main_activity_student_dialog_matchmaking_cancel_button);
-
-        final String uid = firebaseAuth.getCurrentUser().getUid();
-
-        final DatabaseReference opTemp = FirebaseDatabase.getInstance().getReference().child("Temp").child(opKey);
-        final DatabaseReference myTemp = FirebaseDatabase.getInstance().getReference().child("Temp").child(uid);
-
-        opTemp.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getValue().equals("yes")) {
-                    opStat.setBackgroundResource(R.drawable.status_ready);
-                } else if (dataSnapshot.getValue().equals("abandon")) {
-                    opAbandon = true;
-                    opStat.setBackgroundResource(R.drawable.status_not_ready);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        ready.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                myStat.setBackgroundResource(R.drawable.status_ready);
-                myTemp.setValue("yes");
-                ready.setEnabled(false);
-                cancel.setEnabled(false);
-            }
-        });
-
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                myAbandon = true;
-                myStat.setBackgroundResource(R.drawable.status_not_ready);
-                myTemp.setValue("abandon");
-                ready.setEnabled(false);
-                cancel.setEnabled(false);
-            }
-        });
-
-        new CountDownTimer(6000, 1000) {
-            @Override
-            public void onTick(long l) {
-                text.setText(l/1000 + "");
-            }
-
-            @Override
-            public void onFinish() {
-                if (myAbandon) {
-                    opTemp.setValue(null);
-                    myTemp.setValue(null);
-                    if (mode.equals("klasik")) {
-                        FirebaseDatabase.getInstance().getReference().child("Klasik").child(uid).setValue(null);
-                        FirebaseDatabase.getInstance().getReference().child("Klasik").child(opKey).setValue(null);
-                    } else {
-                        FirebaseDatabase.getInstance().getReference().child("Time Trial").child(uid).setValue(null);
-                        FirebaseDatabase.getInstance().getReference().child("Time Trial").child(opKey).setValue(null);
-                    }
-
-                    dialog.dismiss();
-                    if (!getFragmentManager().popBackStackImmediate()) getActivity().onBackPressed();
-                    MainActivityStudent acti = (MainActivityStudent)getParentFragment().getActivity();
-                    acti.showAppBar();
-                    getChildFragmentManager().beginTransaction()
-                            .replace(R.id.main_activity_student_frame_root, PlayFragment1.newInstance("abandon"))
-                            .commit();
-                }
-
-                if (opAbandon) {
-                    opTemp.setValue(null);
-                    myTemp.setValue(null);
-                    if (mode.equals("klasik")) {
-                        FirebaseDatabase.getInstance().getReference().child("Klasik").child(uid).setValue(null);
-                        FirebaseDatabase.getInstance().getReference().child("Klasik").child(opKey).setValue(null);
-                    } else {
-                        FirebaseDatabase.getInstance().getReference().child("Time Trial").child(uid).setValue(null);
-                        FirebaseDatabase.getInstance().getReference().child("Time Trial").child(opKey).setValue(null);
-                    }
-
-                    dialog.dismiss();
-                    if (!getFragmentManager().popBackStackImmediate()) getActivity().onBackPressed();
-                    MainActivityStudent acti = (MainActivityStudent)getParentFragment().getActivity();
-                    acti.showAppBar();
-                }
-
-                Toast.makeText(getActivity(), "SUCCESS", Toast.LENGTH_SHORT).show();
-                dialog.dismiss();
-            }
-        }.start();
-
         dialog.show(getChildFragmentManager(), "");
     }
 
-    public static class DialogFragment extends android.support.v4.app.DialogFragment {
+    public static class CustomDialogReady extends DialogFragment {
+
+        private boolean myAbandon, opAbandon;
+        private String mode, opKey;
+
+        private static final String MODE = "mode";
+        private static final String OP_KEY = "op_key";
+
+        public static CustomDialogReady newInstance(String opKey, String mode) {
+
+            Bundle args = new Bundle();
+            args.putString(MODE, mode);
+            args.putString(OP_KEY, opKey);
+            CustomDialogReady fragment = new CustomDialogReady();
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        @Override
+        public void onCreate(@Nullable Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            if (getArguments() != null) {
+                mode = getArguments().getString(MODE);
+                opKey = getArguments().getString(OP_KEY);
+            }
+        }
+
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.custom_dialog_main_activity_student_matchmaking, container, false);
+            View view = inflater.inflate(R.layout.custom_dialog_main_activity_student_matchmaking, container, false);
+
+            opAbandon = false;
+            myAbandon = false;
+            
+            final TextView opStat = (TextView)view.findViewById(R.id.main_activity_student_dialog_matchmaking_opponent_ready);
+            final TextView myStat = (TextView)view.findViewById(R.id.main_activity_student_dialog_matchmaking_self_ready);
+            final TextView text = (TextView)view.findViewById(R.id.main_activity_student_dialog_matchmaking_timer_text);
+            final Button ready = (Button)view.findViewById(R.id.main_activity_student_dialog_matchmaking_ready_button);
+            final Button cancel = (Button)view.findViewById(R.id.main_activity_student_dialog_matchmaking_cancel_button);
+
+            final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+            final DatabaseReference opTemp = FirebaseDatabase.getInstance().getReference().child("Temp").child(opKey);
+            final DatabaseReference myTemp = FirebaseDatabase.getInstance().getReference().child("Temp").child(uid);
+
+            opTemp.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.getValue().toString().equals("yes")) {
+                        opStat.setBackgroundResource(R.drawable.status_ready);
+                    } else if (dataSnapshot.getValue().toString().equals("abandon")) {
+                        opAbandon = true;
+                        opStat.setBackgroundResource(R.drawable.status_not_ready);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+            ready.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    myStat.setBackgroundResource(R.drawable.status_ready);
+                    myTemp.setValue("yes");
+                    ready.setEnabled(false);
+                    cancel.setEnabled(false);
+                }
+            });
+
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    myAbandon = true;
+                    myStat.setBackgroundResource(R.drawable.status_not_ready);
+                    myTemp.setValue("abandon");
+                    ready.setEnabled(false);
+                    cancel.setEnabled(false);
+                }
+            });
+
+            new CountDownTimer(6000, 1000) {
+                @Override
+                public void onTick(long l) {
+                    text.setText(l/1000 + "");
+                }
+
+                @Override
+                public void onFinish() {
+                    if (myAbandon) {
+                        opTemp.setValue(null);
+                        myTemp.setValue(null);
+                        if (mode.equals("klasik")) {
+                            FirebaseDatabase.getInstance().getReference().child("Klasik").child(uid).setValue(null);
+                            FirebaseDatabase.getInstance().getReference().child("Klasik").child(opKey).setValue(null);
+                        } else {
+                            FirebaseDatabase.getInstance().getReference().child("Time Trial").child(uid).setValue(null);
+                            FirebaseDatabase.getInstance().getReference().child("Time Trial").child(opKey).setValue(null);
+                        }
+
+                        dismiss();
+//                        if (!getFragmentManager().popBackStackImmediate()) getActivity().onBackPressed();
+                        MainActivityStudent acti = (MainActivityStudent)getParentFragment().getActivity();
+                        acti.showAppBar();
+                        getChildFragmentManager().beginTransaction()
+                                .replace(R.id.main_activity_student_frame_root, PlayFragment1.newInstance("abandon"))
+                                .commit();
+                    }
+
+                    if (opAbandon) {
+                        opTemp.setValue(null);
+                        myTemp.setValue(null);
+                        if (mode.equals("klasik")) {
+                            FirebaseDatabase.getInstance().getReference().child("Klasik").child(uid).setValue(null);
+                            FirebaseDatabase.getInstance().getReference().child("Klasik").child(opKey).setValue(null);
+                        } else {
+                            FirebaseDatabase.getInstance().getReference().child("Time Trial").child(uid).setValue(null);
+                            FirebaseDatabase.getInstance().getReference().child("Time Trial").child(opKey).setValue(null);
+                        }
+
+                        dismiss();
+                        if (!getFragmentManager().popBackStackImmediate()) getActivity().onBackPressed();
+                        MainActivityStudent acti = (MainActivityStudent)getParentFragment().getActivity();
+                        acti.showAppBar();
+                    }
+
+                    Toast.makeText(getActivity(), "SUCCESS", Toast.LENGTH_SHORT).show();
+                    dismiss();
+                }
+            }.start();
+
+            return view;
         }
     }
 }

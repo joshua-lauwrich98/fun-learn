@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/main_activity_student_dialog_profil_change_photo_galeri_button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:textSize="18sp"
+        android:text="@string/dialog_fragment_profil_photo_change_select_resource"
+        android:textAlignment="center"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="2.5dp"
+        android:background="@drawable/background_profil_username"/>
+
+    <TextView
+        android:id="@+id/main_activity_student_dialog_profil_change_photo_camera_button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:textSize="18sp"
+        android:text="@string/dialog_fragment_profil_photo_change_select_resource2"
+        android:textAlignment="center"
+        android:gravity="center"/>
+
+</LinearLayout>

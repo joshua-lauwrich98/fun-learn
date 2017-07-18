@@ -2,11 +2,14 @@ package anchovy.net.funlearn;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -14,12 +17,25 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Locale;
 
 import anchovy.net.funlearn.fragments.MainActivityContainerFragment;
+import anchovy.net.funlearn.service.AddFriend;
 
 public class MainActivityStudent extends AppCompatActivity {
 
@@ -44,6 +60,9 @@ public class MainActivityStudent extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_main_student);
+
+        Intent intent = new Intent(this, AddFriend.class);
+        startService(intent);
 
         if (Build.VERSION.SDK_INT >= 23) {
             getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar, getTheme()));
@@ -87,6 +106,45 @@ public class MainActivityStudent extends AppCompatActivity {
         }
 
         barLayout = (AppBarLayout)findViewById(R.id.main_activity_app_bar);
+
+        DatabaseReference request = FirebaseDatabase.getInstance().getReference().child("AAA").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        request.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child("status").getValue() != null &&
+                        dataSnapshot.child("name").getValue() != null &&
+                                dataSnapshot.child("uid").getValue() != null && dataSnapshot.child("status").getValue().toString().equals("yes")) {
+                    SharedPreferences.Editor a = getSharedPreferences("add_friend", MODE_PRIVATE).edit();
+                    a.putString("name", dataSnapshot.child("name").getValue().toString());
+                    a.putString("uid", dataSnapshot.child("uid").getValue().toString());
+                    a.apply();
+                } else {
+                    SharedPreferences.Editor a = getSharedPreferences("add_friend", MODE_PRIVATE).edit();
+                    a.putString("name", null);
+                    a.putString("uid", null);
+                    a.apply();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        SharedPreferences a = getSharedPreferences("add_friend", MODE_PRIVATE);
+        String uid = a.getString("uid", null);
+        String name = a.getString("name", null);
+        if (uid != null && name != null) {
+            DialogFragment dialog = new CustomDialogAddFriend().newInstance(name, uid);
+            dialog.setCancelable(false);
+            dialog.show(getSupportFragmentManager(), null);
+        }
+
+        super.onResume();
     }
 
     public void hideAppBar () {
@@ -163,13 +221,116 @@ public class MainActivityStudent extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        FirebaseDatabase.getInstance().getReference().child("Statistic").child("status").setValue("online");
+        FirebaseDatabase.getInstance().getReference().child("Statistic").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("status").setValue("online");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
 
-        FirebaseDatabase.getInstance().getReference().child("Statistic").child("status").setValue("offline");
+        FirebaseDatabase.getInstance().getReference().child("Statistic").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("status").setValue("offline");
+    }
+
+    public static class CustomDialogAddFriend extends DialogFragment implements View.OnClickListener {
+
+        private TextView name;
+        private String opName;
+        private String opUID;
+
+        private static final String OP_NAME = "op_name";
+        private static final String OP_UID = "op_uid";
+
+        public static CustomDialogAddFriend newInstance(String opName, String opUID) {
+            Bundle args = new Bundle();
+            args.putString(OP_NAME, opName);
+            args.putString(OP_UID, opUID);
+            CustomDialogAddFriend fragment = new CustomDialogAddFriend();
+            fragment.setCancelable(false);
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        @Override
+        public void onCreate(@Nullable Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            if (getArguments() != null) {
+                opName = getArguments().getString(OP_NAME);
+                opUID = getArguments().getString(OP_UID);
+            }
+        }
+
+        @Nullable
+        @Override
+        public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+
+            View view = inflater.inflate(R.layout.dialog_fragment_add_friend, container, false);
+
+            Button yes = (Button) view.findViewById(R.id.main_activity_add_friend_ok_button);
+            Button no = (Button) view.findViewById(R.id.main_activity_add_friend_cancel_button);
+            yes.setOnClickListener(this);
+            no.setOnClickListener(this);
+
+            name = (TextView) view.findViewById(R.id.main_activity_add_friend_op_name);
+            name.setText(opName);
+
+            return view;
+        }
+
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.main_activity_add_friend_ok_button :
+                    FirebaseDatabase.getInstance().getReference().child("Friend List")
+                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).push().setValue(opUID);
+                    FirebaseDatabase.getInstance().getReference().child("Friend List")
+                            .child(opUID).push().setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                    Toast.makeText(getContext(), String.format(Locale.getDefault(), getResources().getString(R.string.dialog_fragment_add_friend_notif), opName), Toast.LENGTH_SHORT).show();
+
+                    FirebaseDatabase.getInstance().getReference().child("Request Friend").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).orderByValue().equalTo(opUID).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            dataSnapshot.getRef().setValue(null);
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+                    FirebaseDatabase.getInstance().getReference().child("AAA").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("name").setValue(null);
+                    FirebaseDatabase.getInstance().getReference().child("AAA").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("status").setValue(null);
+                    FirebaseDatabase.getInstance().getReference().child("AAA").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("uid").setValue(null);
+                    dismiss();
+                    SharedPreferences.Editor sp = getContext().getSharedPreferences("add_friend_notif", MODE_PRIVATE).edit();
+                    sp.putBoolean("status", true);
+                    sp.apply();
+                    break;
+
+                case R.id.main_activity_add_friend_cancel_button :
+                    FirebaseDatabase.getInstance().getReference().child("Request Friend").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).orderByValue().equalTo(opUID).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            dataSnapshot.getRef().setValue(null);
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+                    FirebaseDatabase.getInstance().getReference().child("AAA").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("name").setValue(null);
+                    FirebaseDatabase.getInstance().getReference().child("AAA").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("status").setValue(null);
+                    FirebaseDatabase.getInstance().getReference().child("AAA").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("uid").setValue(null);
+                    dismiss();
+                    SharedPreferences.Editor sp2 = getContext().getSharedPreferences("add_friend_notif", MODE_PRIVATE).edit();
+                    sp2.putBoolean("status", true);
+                    sp2.apply();
+                    break;
+            }
+        }
     }
 }

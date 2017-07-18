@@ -81,4 +81,60 @@
     <string name="main_activity_student_tab_title4">Profile</string>
     <string name="main_activity_student_play_cancel">Cancel</string>
     <string name="main_activity_student_play_time_title">Finding opponent :</string>
+
+
+    <string name="dialog_fragment_profile_username_change_title">Insert new username :</string>
+    <string name="dialog_fragment_profil_username_change_ok_button">ok</string>
+    <string name="dialog_fragment_profil_username_change_cancel_button">cancel</string>
+    <string name="dialog_fragment_profil_photo_change_select_resource">From Galery</string>
+    <string name="dialog_fragment_profil_photo_change_select_resource2">From Camera</string>
+    <string name="dialog_fragment_profil_photo_change_progress_dialog_message">Changing photo....</string>
+    <string name="dialog_fragment_profile_add_friend_title">Insert your friend\'s id :</string>
+    <string name="dialog_fragment_profile_add_friend_desc"><![CDATA[*id can be seen on Profil > MyProfil]]></string>
+    <string name="dialog_fragment_add_friend_title">Confirm friend request?</string>
+    <string name="dialog_fragment_add_friend_no">No</string>
+    <string name="dialog_fragment_add_friend_notif" formatted="false">%s has been added as friend.</string>
+    <string name="dialog_fragment_rank_up_max">Congratulation you have reach the highest rank! Featured for the next grade is not available yet.</string>
+    <string name="dialog_fragment_profil_own_data_title">Are you sure ?</string>
+    <string name="dialog_fragment_profil_own_data_warning">You can\'t undo your action. Remember, this information really important for using features in this apps.</string>
+    <string name="dialog_fragment_class_error">This field is empty</string>
+    <string name="dialog_fragment_class_join_error">Class not found!</string>
+    <string name="dialog_fragment_class_join_title">Insert class id :</string>
+    <string name="dialog_fragment_class_join_warning">*ask your teacher for this id</string>
+    <string name="dialog_fragment_class_join_already">You already been a member of the class</string>
+    <string name="dialog_fragment_class_success">Join class succeeded</string>
+
+
+    <string name="notification_add_friend_ticker">You have new friend request!</string>
+    <string name="notification_add_friend_content" formatted="false">%s sent a friend request</string>
+
+
+    <string name="main_activity_student_profile_statistic_general">General</string>
+    <string name="main_activity_student_profile_statistic_total_games">Total game :</string>
+    <string name="main_activity_student_profile_statistic_total_win">Total win :</string>
+    <string name="main_activity_student_profile_statistic_total_lose">Total lose :</string>
+    <string name="main_activity_student_profile_statistic_total_exercise">Total exercise :</string>
+    <string name="main_activity_student_profile_statistic_best_pvp_score">Best score PvP :</string>
+    <string name="main_activity_student_profile_statistic_best_time_trial_score">Best score time trial :</string>
+    <string name="main_activity_student_profile_statistic_total_time_learn">Total learn :</string>
+    <string name="main_activity_student_profile_statistic_pvp">PvP</string>
+    <string name="main_activity_student_profile_statistic_answered">Question answered :</string>
+    <string name="main_activity_student_profile_statistic_answered_true">Question answered true :</string>
+    <string name="main_activity_student_profile_statistic_answered_false">Question answered false :</string>
+    <string name="main_activity_student_profile_statistic_time_trial">Time Trial</string>
+    <string name="main_activity_student_profile_statistic_template_hasil" formatted="false">%d day(s) %d hour(s) %d minute(s)</string>
+    <string name="main_activity_student_profile_statistic_best_time_trial_template" formatted="false">%d second(s)</string>
+    <string name="main_activity_student_profile_own_data_copy">UID has been coppied to clipboard!</string>
+    <string name="main_activity_student_profile_own_data_code">TEACHER CODE :</string>
+    <string name="main_activity_student_profile_own_data_uid">UID :</string>
+    <string name="main_activity_student_profile_own_data_email">EMAIL :</string>
+    <string name="main_activity_student_profile_own_data_fullname">FULL NAME :</string>
+    <string name="main_activity_student_profile_own_data_acc">ACCOUNT TYPE :</string>
+    <string name="main_activity_student_profile_own_data_school">SCHOOL :</string>
+    <string name="main_activity_student_profile_own_data_grade">GRADE :</string>
+    <string name="main_activity_student_profile_own_data_copy_title">COPY</string>
+    <string name="main_activity_student_profile_own_data_rankup">GRADE UP</string>
+    <string name="main_activity_student_class_fragment_title">CHOOSE CLASS</string>
+    <string name="main_activity_student_class_fragment_join_class">Join Class</string>
+    <string name="main_activity_student_class_fragment_add_class">Add Class</string>
 </resources>

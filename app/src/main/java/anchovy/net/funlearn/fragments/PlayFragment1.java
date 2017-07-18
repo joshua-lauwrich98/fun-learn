@@ -162,9 +162,11 @@ public class PlayFragment1 extends Fragment implements View.OnClickListener, Vie
                             Animation animation1 =
                                     AnimationUtils.loadAnimation(getActivity(), R.anim.fade_out);
                             withFriend.startAnimation(animation1);
+                            withFriend.setVisibility(View.VISIBLE);
                             Animation animation2 =
                                     AnimationUtils.loadAnimation(getActivity(), R.anim.fade_in);
                             withFriendLay.startAnimation(animation2);
+                            withFriendLay.setVisibility(View.GONE);
                         }
                     }
                     // get the center for the clipping circle
@@ -187,9 +189,11 @@ public class PlayFragment1 extends Fragment implements View.OnClickListener, Vie
                     Animation animation1 =
                             AnimationUtils.loadAnimation(getActivity(), R.anim.fade_out);
                     pvpLay.startAnimation(animation1);
+                    pvpLay.setVisibility(View.VISIBLE);
                     Animation animation2 =
                             AnimationUtils.loadAnimation(getActivity(), R.anim.fade_in);
                     pvp.startAnimation(animation2);
+                    pvp.setVisibility(View.GONE);
                 }
                 withIsOpen = false;
                 pvpIsOpen = true;
@@ -222,9 +226,11 @@ public class PlayFragment1 extends Fragment implements View.OnClickListener, Vie
                             Animation animation1 =
                                     AnimationUtils.loadAnimation(getActivity(), R.anim.fade_out);
                             pvp.startAnimation(animation1);
+                            pvp.setVisibility(View.VISIBLE);
                             Animation animation2 =
                                     AnimationUtils.loadAnimation(getActivity(), R.anim.fade_in);
                             pvpLay.startAnimation(animation2);
+                            pvpLay.setVisibility(View.GONE);
                         }
                     }
                     // get the center for the clipping circle
@@ -246,9 +252,11 @@ public class PlayFragment1 extends Fragment implements View.OnClickListener, Vie
                     Animation animation1 =
                             AnimationUtils.loadAnimation(getActivity(), R.anim.fade_out);
                     withFriendLay.startAnimation(animation1);
+                    withFriendLay.setVisibility(View.VISIBLE);
                     Animation animation2 =
                             AnimationUtils.loadAnimation(getActivity(), R.anim.fade_in);
                     withFriend.startAnimation(animation2);
+                    withFriend.setVisibility(View.GONE);
                 }
                 withIsOpen = true;
                 pvpIsOpen = false;
@@ -279,9 +287,11 @@ public class PlayFragment1 extends Fragment implements View.OnClickListener, Vie
                     Animation animation1 =
                             AnimationUtils.loadAnimation(getActivity(), R.anim.fade_out);
                     withFriend.startAnimation(animation1);
+                    withFriend.setVisibility(View.VISIBLE);
                     Animation animation2 =
                             AnimationUtils.loadAnimation(getActivity(), R.anim.fade_in);
                     withFriendLay.startAnimation(animation2);
+                    withFriendLay.setVisibility(View.GONE);
                 }
                 withIsOpen = false;
                 break;
@@ -311,9 +321,11 @@ public class PlayFragment1 extends Fragment implements View.OnClickListener, Vie
                     Animation animation1 =
                             AnimationUtils.loadAnimation(getActivity(), R.anim.fade_out);
                     pvp.startAnimation(animation1);
+                    pvp.setVisibility(View.VISIBLE);
                     Animation animation2 =
                             AnimationUtils.loadAnimation(getActivity(), R.anim.fade_in);
                     pvpLay.startAnimation(animation2);
+                    pvpLay.setVisibility(View.GONE);
                 }
                 pvpIsOpen = false;
                 break;

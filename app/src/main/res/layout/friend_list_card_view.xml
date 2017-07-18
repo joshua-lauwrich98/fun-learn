@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.v7.widget.CardView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    card_view:cardBackgroundColor="@android:color/transparent">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
         android:layout_margin="5dp">
 
         <ImageView
             android:id="@+id/user_photo"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="35dp"
             app:layout_constraintRight_toLeftOf="@+id/guideline12"
             android:layout_marginRight="5dp"
             android:layout_marginTop="2dp"
@@ -26,7 +28,7 @@
         <anchovy.net.funlearn.fonts.SimplificaFontTextView
             android:id="@+id/user_username"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="35dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:textSize="25sp"
@@ -41,8 +43,8 @@
 
         <ImageView
             android:id="@+id/user_status_icon"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
             android:layout_gravity="center"
             android:scaleType="fitCenter"
             app:layout_constraintRight_toLeftOf="@+id/guideline14"
@@ -60,7 +62,7 @@
         <TextView
             android:id="@+id/user_status"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="35dp"
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"
             android:layout_marginStart="5dp"

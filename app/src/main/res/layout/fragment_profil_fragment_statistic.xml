@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="10dp"
+    tools:context="anchovy.net.funlearn.fragments.ProfilFragmentStatistic">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_general"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:id="@+id/main_activity_profile_fragment_statistic_kesimpulan_id"
+            android:inputType="none" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_total_games"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_kesimpulan_id"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_games_played_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_kesimpulan_id"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_games_played_text"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_games_played_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_games_played_result"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_total_win"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_games_played_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_win_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_games_played_result"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_win_text"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_win_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_win_result"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_total_lose"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_win_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_lose_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_win_result"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_lose_text"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_lose_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_lose_result"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_total_exercise"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_lose_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_latihan_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_lose_result"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_latihan_text"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_latihan_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_latihan_result"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_best_pvp_score"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_latihan_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_pvp_nilai_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_latihan_result"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_pvp_nilai_text"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_pvp_nilai_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_pvp_nilai_result"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_best_time_trial_score"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_pvp_nilai_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_time_trial_nilai_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_pvp_nilai_result"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_time_trial_nilai_text"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_time_trial_nilai_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_time_trial_nilai_result"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_total_time_learn"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_time_trial_nilai_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_belajar_nilai_text"/>
+
+        <TextView
+            android:id="@+id/main_activity_profile_fragment_statistic_total_belajar_nilai_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_time_trial_nilai_result"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_belajar_nilai_text"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_belajar_nilai_text"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_pvp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_belajar_nilai_text"
+            android:layout_marginTop="20dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_pvp_id"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_total_games"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_pvp_id"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_main_pvp_nilai_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_pvp_id"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_main_pvp_nilai_text"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_main_pvp_nilai_text"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_main_pvp_nilai_result"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_total_win"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_main_pvp_nilai_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_win_pvp_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_main_pvp_nilai_result"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_win_pvp_text"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_win_pvp_text"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_win_pvp_result"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_total_lose"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_win_pvp_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_lose_pvp_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_lose_pvp_text"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_win_pvp_result"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_lose_pvp_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_lose_pvp_result"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_answered"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_lose_pvp_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_question_pvp_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_question_pvp_text"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_lose_pvp_result"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_question_pvp_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_question_pvp_result"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_answered_true"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_question_pvp_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_question_true_pvp_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_question_pvp_result"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_question_true_pvp_text"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_question_true_pvp_text"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_question_true_pvp_result"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_answered_false"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_question_true_pvp_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_question_false_pvp_text"/>
+
+        <TextView
+            android:id="@+id/main_activity_profile_fragment_statistic_total_question_false_pvp_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_question_true_pvp_result"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_question_false_pvp_text"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_question_false_pvp_text"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_time_trial"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_question_false_pvp_text"
+            android:layout_marginTop="20dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_timetrial_id"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_total_games"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_timetrial_id"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_main_timetrial_nilai_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_main_timetrial_nilai_text"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_timetrial_id"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_main_timetrial_nilai_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_main_timetrial_nilai_result"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_total_win"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_main_timetrial_nilai_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_win_timetrial_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_win_timetrial_text"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_main_timetrial_nilai_result"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_win_timetrial_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_win_timetrial_result"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_total_lose"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_win_timetrial_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_lose_timetrial_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_lose_timetrial_text"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_win_timetrial_result"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_lose_timetrial_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_lose_timetrial_result"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_answered"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_lose_timetrial_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_question_timetrial_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_lose_timetrial_result"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_question_timetrial_text"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_question_timetrial_text"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_question_timetrial_result"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_answered_true"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_question_timetrial_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_question_true_timetrial_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_question_timetrial_result"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_question_true_timetrial_text"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_question_true_timetrial_text"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_question_true_timetrial_result"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_student_profile_statistic_answered_false"
+            android:textColor="@color/black"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_question_true_timetrial_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:id="@+id/main_activity_profile_fragment_statistic_total_question_false_timetrial_text"/>
+
+        <TextView
+            android:id="@+id/main_activity_profile_fragment_statistic_total_question_false_timetrial_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/main_activity_profile_fragment_statistic_total_question_true_timetrial_result"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/main_activity_profile_fragment_statistic_total_question_false_timetrial_text"
+            android:layout_toRightOf="@id/main_activity_profile_fragment_statistic_total_question_false_timetrial_text"
+            android:textColor="@color/black" />
+
+    </RelativeLayout>
+</ScrollView>

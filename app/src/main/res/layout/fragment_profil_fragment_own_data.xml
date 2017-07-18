@@ -1,0 +1,214 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="anchovy.net.funlearn.fragments.ProfilFragmentOwnData"
+    tools:layout_editor_absoluteY="25dp"
+    tools:layout_editor_absoluteX="0dp"
+    android:padding="10dp">
+
+    <anchovy.net.funlearn.fonts.SimplificaFontTextView
+        android:id="@+id/main_activity_profile_fragment_own_profile_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toRightOf="@+id/main_activity_profile_fragment_own_profile_code_title"
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_profile_fragment_own_profile_account_type" />
+
+    <anchovy.net.funlearn.fonts.SimplificaFontTextView
+        android:id="@+id/main_activity_profile_fragment_own_profile_code_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/main_activity_student_profile_own_data_code"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/simplificaFontTextView4" />
+
+    <anchovy.net.funlearn.fonts.SimplificaFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_activity_student_profile_own_data_uid"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/simplificaFontTextView" />
+
+    <anchovy.net.funlearn.fonts.SimplificaFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_activity_student_profile_own_data_email"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/simplificaFontTextView"
+        android:id="@+id/simplificaFontTextView2" />
+
+    <anchovy.net.funlearn.fonts.SimplificaFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_activity_student_profile_own_data_fullname"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/simplificaFontTextView2"
+        android:id="@+id/simplificaFontTextView3" />
+
+    <anchovy.net.funlearn.fonts.SimplificaFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_activity_student_profile_own_data_acc"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/simplificaFontTextView3"
+        android:id="@+id/simplificaFontTextView4" />
+
+    <anchovy.net.funlearn.fonts.SimplificaFontTextView
+        android:id="@+id/main_activity_profile_fragment_own_profile_school_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="22dp"
+        android:text="@string/main_activity_student_profile_own_data_school"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/simplificaFontTextView4" />
+
+    <anchovy.net.funlearn.fonts.SimplificaFontTextView
+        android:id="@+id/main_activity_profile_fragment_own_profile_grade_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/main_activity_student_profile_own_data_grade"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_profile_fragment_own_profile_code_title" />
+
+    <anchovy.net.funlearn.fonts.SimplificaFontTextView
+        android:id="@+id/main_activity_profile_fragment_own_profile_school"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toRightOf="@+id/main_activity_profile_fragment_own_profile_school_title"
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_profile_fragment_own_profile_account_type" />
+
+    <anchovy.net.funlearn.fonts.SimplificaFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toRightOf="@+id/simplificaFontTextView"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:id="@+id/main_activity_profile_fragment_own_profile_uid" />
+
+    <anchovy.net.funlearn.fonts.SimplificaFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_profile_fragment_own_profile_uid"
+        app:layout_constraintLeft_toRightOf="@+id/simplificaFontTextView2"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:id="@+id/main_activity_profile_fragment_own_profile_email" />
+
+    <anchovy.net.funlearn.fonts.SimplificaFontTextView
+        android:id="@+id/main_activity_profile_fragment_own_profile_grade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toRightOf="@+id/main_activity_profile_fragment_own_profile_grade_title"
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_profile_fragment_own_profile_school" />
+
+    <anchovy.net.funlearn.fonts.SimplificaFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_profile_fragment_own_profile_fullname"
+        app:layout_constraintLeft_toRightOf="@+id/simplificaFontTextView4"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        android:id="@+id/main_activity_profile_fragment_own_profile_account_type" />
+
+    <anchovy.net.funlearn.fonts.SimplificaFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/simplificaFontTextView3"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_profile_fragment_own_profile_email"
+        android:id="@+id/main_activity_profile_fragment_own_profile_fullname" />
+
+    <ImageButton
+        android:id="@+id/main_activity_profile_fragment_own_profile_copy_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_content_copy_black_24dp"
+        android:scaleType="centerInside"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/main_activity_profile_fragment_own_profile_uid"
+        android:layout_marginLeft="14dp" />
+
+    <anchovy.net.funlearn.fonts.LemonMilkFontButton
+        android:id="@+id/main_activity_profile_fragment_own_profile_rank_up_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/main_activity_student_profile_own_data_rankup"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toRightOf="@+id/main_activity_profile_fragment_own_profile_school"
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_profile_fragment_own_profile_account_type" />
+</android.support.constraint.ConstraintLayout>

@@ -174,7 +174,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             checkUserExist();
-                            progress.dismiss();
                         } else {
                             Toast.makeText(getActivity(), "FAIL", Toast.LENGTH_SHORT).show();
                         }
@@ -309,8 +308,10 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                         Intent main = new Intent(getActivity(), MainActivityStudent.class);
                         startActivity(main);
                         getActivity().finish();
+                        progress.dismiss();
                     } else {
                         changeFragment();
+                        progress.dismiss();
                     }
                 }
 

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#3E80B4"
+    android:orientation="vertical"
+    android:paddingBottom="20dp"
+    android:paddingEnd="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingStart="20dp"
+    android:paddingTop="10dp">
+
+    <anchovy.net.funlearn.fonts.SimplificaFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:id="@+id/main_activity_add_friend_op_name"
+        android:textSize="25sp"/>
+
+    <anchovy.net.funlearn.fonts.SimplificaFontTextView
+        android:id="@+id/main_activity_add_friend_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:textAlignment="center"
+        android:text="@string/dialog_fragment_add_friend_title"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#3E80B4"
+        android:orientation="horizontal" >
+
+        <anchovy.net.funlearn.fonts.LemonMilkFontButton
+            android:id="@+id/main_activity_add_friend_ok_button"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:text="@string/dialog_fragment_profil_username_change_ok_button"
+            android:textSize="18sp"
+            android:textColor="#5DBCD2"
+            android:textStyle="bold" />
+
+        <anchovy.net.funlearn.fonts.LemonMilkFontButton
+            android:id="@+id/main_activity_add_friend_cancel_button"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:textSize="18sp"
+            android:text="@string/dialog_fragment_add_friend_no"
+            android:textColor="#5DBCD2"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

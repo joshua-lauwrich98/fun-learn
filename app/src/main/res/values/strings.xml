@@ -65,6 +65,10 @@
         <item>3</item>
     </string-array>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
     <!-- Main Activity Student -->
     <string name="main_activity_student_play1_choose_mode">PILIH MODE</string>
     <string name="main_activity_student_play1_pvp">PVP</string>
@@ -82,6 +86,59 @@
     <string name="main_activity_student_play_cancel">Batal</string>
     <string name="main_activity_student_play_time_title">Mencari lawan :</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dialog_fragment_profile_username_change_title">Masukan username baru :</string>
+    <string name="dialog_fragment_profil_username_change_ok_button">ya</string>
+    <string name="dialog_fragment_profil_username_change_cancel_button">batalkan</string>
+    <string name="dialog_fragment_profil_photo_change_select_resource">Dari Galeri</string>
+    <string name="dialog_fragment_profil_photo_change_select_resource2">Dari Kamera</string>
+    <string name="dialog_fragment_profil_photo_change_progress_dialog_message">Mengganti foto....</string>
+    <string name="dialog_fragment_profile_add_friend_title">Masukan id teman :</string>
+    <string name="dialog_fragment_profile_add_friend_desc"><![CDATA[*id dapat dilihat pada menu Profil > MyProfil]]></string>
+    <string name="dialog_fragment_profil_add_friend_toast_notif">Permintaan pertemanan sudah dikirim</string>
+    <string name="dialog_fragment_add_friend_title">Konfirmasi pertemanan?</string>
+    <string name="dialog_fragment_add_friend_no">Tidak</string>
+    <string name="dialog_fragment_add_friend_notif" formatted="false">%s telah ditambahkan sebagai teman.</string>
+    <string name="dialog_fragment_rank_up_max">Selamat anda telah mencapai rank tertinggi! Layanan untuk jenjang selanjutnya belum tersedia.</string>
+    <string name="dialog_fragment_profil_own_data_title">Yakin sudah naik kelas ?</string>
+    <string name="dialog_fragment_profil_own_data_warning">Anda tidak bisa kembali pada kelas sebelumnya setelah memilih \'ya\'. Ingat, informasi ini sangat diperlukan untuk fitur-fitur yang ada pada aplikasi ini.</string>
+    <string name="dialog_fragment_class_error">Bagian ini masih kosong</string>
+    <string name="dialog_fragment_class_join_error">Kelas tidak ditemukan!</string>
+    <string name="dialog_fragment_class_join_title">Masukkan id kelas :</string>
+    <string name="dialog_fragment_class_join_warning">*id hanya dapat diakses oleh account guru</string>
+    <string name="dialog_fragment_class_join_already">Anda sudah menjadi anggota kelas</string>
+    <string name="dialog_fragment_class_success">Sukses masuk ke dalam kelas</string>
+
+
+    <string name="notification_add_friend_ticker">Anda memmiliki permintaan pertemanan!</string>
+    <string name="notification_add_friend_content" formatted="false">%s mengirimkan anda permintaan pertemanan</string>
+    <string name="main_activity_student_profile_statistic_general">Umum</string>
+    <string name="main_activity_student_profile_statistic_total_games">Total permainan :</string>
+    <string name="main_activity_student_profile_statistic_total_win">Total kemenangan :</string>
+    <string name="main_activity_student_profile_statistic_total_lose">Total kekalahan :</string>
+    <string name="main_activity_student_profile_statistic_total_exercise">Total pengerjaan latihan :</string>
+    <string name="main_activity_student_profile_statistic_best_pvp_score">Nilai terbaik PvP :</string>
+    <string name="main_activity_student_profile_statistic_best_time_trial_score">Nilai terbaik Time Trial :</string>
+    <string name="main_activity_student_profile_statistic_total_time_learn">Total waktu belajar :</string>
+    <string name="main_activity_student_profile_statistic_pvp">PvP</string>
+    <string name="main_activity_student_profile_statistic_answered">Soal terjawab</string>
+    <string name="main_activity_student_profile_statistic_answered_true">Total jawab benar :</string>
+    <string name="main_activity_student_profile_statistic_answered_false">Total jawab salah :</string>
+    <string name="main_activity_student_profile_statistic_time_trial">Time Trial</string>
+    <string name="main_activity_student_profile_statistic_template_hasil" formatted="false">%d hari %d jam %d menit</string>
+    <string name="main_activity_student_profile_statistic_best_time_trial_template" formatted="false">%d detik</string>
+    <string name="main_activity_student_profile_own_data_copy">UID telah disalin!</string>
+    <string name="main_activity_student_profile_own_data_code">KODE GURU :</string>
+    <string name="main_activity_student_profile_own_data_uid">UID :</string>
+    <string name="main_activity_student_profile_own_data_email">EMAIL :</string>
+    <string name="main_activity_student_profile_own_data_fullname">NAMA LENGKAP :</string>
+    <string name="main_activity_student_profile_own_data_acc">JENIS AKUN :</string>
+    <string name="main_activity_student_profile_own_data_school">JENJANG SEKOLAH :</string>
+    <string name="main_activity_student_profile_own_data_grade">KELAS :</string>
+    <string name="main_activity_student_profile_own_data_copy_title">SALIN</string>
+    <string name="main_activity_student_profile_own_data_rankup">NAIK KELAS</string>
+    <string name="main_activity_student_class_fragment_title">PILIH KELAS</string>
+    <string name="main_activity_student_class_fragment_join_class">Masuk Kelas</string>
+    <string name="main_activity_student_class_fragment_add_class">Tambah Kelas</string>
+    <string name="title_activity_class">ClassActivity</string>
+    <string name="action_settings">Settings</string>
 </resources>

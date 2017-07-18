@@ -44,9 +44,17 @@ dependencies {
     compile 'com.google.android.gms:play-services-auth:11.0.1'
     compile 'com.google.android.gms:play-services-wallet:11.0.1'
     compile 'com.github.silvestrpredko:dot-progress-bar:1.1'
-    compile 'com.miguelcatalan:materialsearchview:1.4.0'
+    compile 'com.squareup.okhttp3:okhttp:3.8.1'
+    compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.2'
+    compile 'me.grantland:autofittextview:0.2.1'
     testCompile 'junit:junit:4.12'
 }
+
+
+
+
+
+
 
 
 

@@ -41,7 +41,7 @@
                 tools:layout_editor_absoluteY="45dp"
                 tools:layout_editor_absoluteX="107dp" />
 
-            <android.support.v7.widget.AppCompatImageButton
+            <ImageView
                 android:id="@+id/main_activity_profile_fragment_change_photo"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
@@ -52,7 +52,6 @@
                 android:background="@drawable/background_profil_username"
                 android:padding="10dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_add_a_photo_black_24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -72,6 +71,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="@+id/guideline15"
@@ -122,6 +122,13 @@
                 android:layout_height="50dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_statistic" />
+
+            <ImageButton
+                android:id="@+id/main_activity_profile_fragment_money_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_monetization_on_black_24dp" />
 
         </LinearLayout>
 

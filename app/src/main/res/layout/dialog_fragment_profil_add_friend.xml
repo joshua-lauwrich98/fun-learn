@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:paddingBottom="20dp"
+    android:paddingEnd="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingStart="20dp"
+    android:paddingTop="10dp"
+    android:gravity="center">
+
+    <anchovy.net.funlearn.fonts.SimplificaFontTextView
+        android:id="@+id/txt_dia1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:text="@string/dialog_fragment_profile_add_friend_title"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_fragment_profile_add_friend_desc"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:id="@+id/main_activity_student_dialog_profil_add_friend_input"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <anchovy.net.funlearn.fonts.LemonMilkFontButton
+            android:id="@+id/main_activity_student_dialog_profil_add_friend_ok_button"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:text="@string/dialog_fragment_profil_username_change_ok_button"
+            android:textSize="18sp"
+            android:textColor="#5DBCD2"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"/>
+
+        <anchovy.net.funlearn.fonts.LemonMilkFontButton
+            android:id="@+id/main_activity_student_dialog_profil_add_friend_cancel_button"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:text="@string/dialog_fragment_profil_username_change_cancel_button"
+            android:textSize="18sp"
+            android:textColor="#5DBCD2"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>
