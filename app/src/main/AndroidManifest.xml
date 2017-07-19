@@ -40,6 +40,10 @@
             android:enabled="true"
             android:exported="true" />
 
+        <activity
+            android:name=".ClassActivity"
+            android:label="@string/title_activity_class"
+            android:theme="@style/FunLearnLightTheme"></activity>
     </application>
 
 </manifest>

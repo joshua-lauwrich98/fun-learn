@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/class_announcement"
+            android:icon="@drawable/ic_announcement_black_24dp"
+            android:title="@string/class_activity_announcement_title" />
+
+        <item
+            android:id="@+id/class_assignment"
+            android:icon="@drawable/ic_assignment_black_24dp"
+            android:title="@string/class_activity_assignment_title" />
+
+        <item android:title="@string/class_activity_forum_title">
+            <menu>
+                <item
+                    android:id="@+id/class_home"
+                    android:icon="@drawable/ic_forum_black_24dp"
+                    android:title="@string/class_activity_main_menu_title" />
+                <item
+                    android:id="@+id/class_make_question"
+                    android:icon="@drawable/ic_add_circle_outline_black_24dp"
+                    android:title="@string/class_activity_make_question_title" />
+            </menu>
+        </item>
+
+        <item android:title="@string/class_activity_another">
+            <menu>
+                <item
+                    android:id="@+id/class_info"
+                    android:icon="@drawable/ic_help_outline_black_24dp"
+                    android:title="@string/class_activity_class_info"/>
+                <item android:id="@+id/class_disband"
+                    android:icon="@drawable/disband_icon"
+                    android:title="@string/class_activity_disband"/>
+            </menu>
+        </item>
+    </group>
+
+
+
+</menu>

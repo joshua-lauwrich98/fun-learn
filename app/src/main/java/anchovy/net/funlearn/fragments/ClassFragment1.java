@@ -2,6 +2,7 @@ package anchovy.net.funlearn.fragments;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.annotation.Nullable;
@@ -29,12 +30,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
+import anchovy.net.funlearn.ClassActivity;
 import anchovy.net.funlearn.R;
 import anchovy.net.funlearn.other.Class;
 import anchovy.net.funlearn.other.ClassViewHolder;
@@ -91,7 +96,7 @@ public class ClassFragment1 extends Fragment implements View.OnClickListener {
         add.setOnClickListener(this);
         join.setOnClickListener(this);
 
-//        if (jenis.equals("student")) add.setVisibility(View.GONE);
+        if (jenis.equals("student")) add.setVisibility(View.GONE);
 
         return view;
     }
@@ -110,7 +115,7 @@ public class ClassFragment1 extends Fragment implements View.OnClickListener {
             protected void populateViewHolder(final ClassViewHolder viewHolder, final Class model, int position) {
                 viewHolder.setButton(model.getName());
 
-//                if (jenis.equals("student")) viewHolder.copy.setVisibility(View.GONE);
+                if (jenis.equals("student")) viewHolder.copy.setVisibility(View.GONE);
 
                 viewHolder.copy.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -122,7 +127,11 @@ public class ClassFragment1 extends Fragment implements View.OnClickListener {
                 viewHolder.button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        Intent classActi = new Intent(getContext(), ClassActivity.class);
+                        classActi.putExtra("JENIS", jenis);
+                        classActi.putExtra("UID", model.getUid());
+                        classActi.putExtra("TITLE", model.getName());
+                        startActivity(classActi);
                     }
                 });
             }
@@ -287,6 +296,16 @@ public class ClassFragment1 extends Fragment implements View.OnClickListener {
             classList.child("uid").setValue(uid);
             classList.child("max").setValue(maxInput.getText().toString());
             classList.child("curr").setValue("1");
+            classList.child("announcement").child("title").setValue("WELCOME !!!");
+            classList.child("announcement").child("content").setValue("NO CONTENT");
+
+            Calendar c = Calendar.getInstance();
+
+            SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+            String formattedDate = df.format(c.getTime());
+            classList.child("created").setValue(formattedDate);
+
+            classList.child("announcement").child("created").setValue(formattedDate);
 
             final DatabaseReference classList1 = classList.child("member").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 

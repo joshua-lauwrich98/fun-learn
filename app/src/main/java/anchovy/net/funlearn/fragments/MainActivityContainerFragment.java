@@ -57,7 +57,7 @@ public class MainActivityContainerFragment extends Fragment {
                 break;
             case "class" :
                 getChildFragmentManager().beginTransaction()
-                        .replace(R.id.main_activity_student_frame_root, new ClassFragment1(), "class student root")
+                        .replace(R.id.main_activity_student_frame_root, ClassFragment1.newInstance("teacher"), "class student root")
                         .commit();
                 break;
             case "profil" :

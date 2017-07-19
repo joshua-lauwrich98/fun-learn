@@ -137,4 +137,18 @@
     <string name="main_activity_student_class_fragment_title">CHOOSE CLASS</string>
     <string name="main_activity_student_class_fragment_join_class">Join Class</string>
     <string name="main_activity_student_class_fragment_add_class">Add Class</string>
+
+
+    <string name="class_activity_menu_more">More</string>
+    <string name="class_activity_announcement_title">Announcement</string>
+    <string name="class_activity_assignment_title">Task</string>
+    <string name="class_activity_forum_title">FORUM</string>
+    <string name="class_activity_main_menu_title">Main Menu</string>
+    <string name="class_activity_make_question_title">Create Question</string>
+    <string name="class_activity_another">OTHER</string>
+    <string name="class_activity_class_info">Class Info</string>
+    <string name="class_activity_disband">Disband Class</string>
+    <string name="dialog_fragment_class_fragment_add_title">Class Name</string>
+    <string name="dialog_fragment_class_fragment_add_max_member">Max Member</string>
+    <string name="dialog_fragment_class_fragment_add_create_button">Create</string>
 </resources>
