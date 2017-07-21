@@ -157,4 +157,17 @@
     <string name="dialog_fragment_class_fragment_add_title">Nama Kelas</string>
     <string name="dialog_fragment_class_fragment_add_max_member">Maksimal Anggota</string>
     <string name="dialog_fragment_class_fragment_add_create_button">Buat</string>
+    <string name="dialog_fragment_class_announcement_edit_title">Judul Pengumuman</string>
+    <string name="dialog_fragment_class_announcement_edit_content">Isi Pengumuman</string>
+    <string name="dialog_fragment_class_announcement_edit_day">Hari</string>
+    <string name="dialog_fragment_class_announcement_edit_hour">Jam</string>
+    <string name="dialog_fragment_class_announcement_edit_minute">Menit</string>
+    <string name="dialog_fragment_class_announcement_edit_change_button">Ubah</string>
+
+    <string name="class_activity_announcement_fragment_created_text_templat" formatted="false">Dibuat :\n%s</string>
+    <string name="class_activity_announcement_fragment_created_text_template" formatted="false">Valid sampai :\n%s</string>
+    <string name="class_activity_announcement_fragment_create_post_title_input">Judul</string>
+    <string name="class_activity_announcement_fragment_create_post_desc_input">Isi / Deskripsi</string>
+    <string name="class_activity_announcement_fragment_create_post_submit_button">Buat</string>
+    <string name="class_activity_announcement_fragment_create_post_progress_message">Memasang pertanyaan....</string>
 </resources>

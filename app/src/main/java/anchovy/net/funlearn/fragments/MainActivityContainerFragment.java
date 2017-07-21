@@ -8,23 +8,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import anchovy.net.funlearn.MainActivityStudent;
 import anchovy.net.funlearn.R;
 
 public class MainActivityContainerFragment extends Fragment {
 
     private static final String JENIS = "jenis";
-    private String jenis;
+    private static final String ACC_TYPE = "acc_type";
+    private String jenis, accType;
 
 
     public MainActivityContainerFragment() {
         // Required empty public constructor
     }
 
-    public static MainActivityContainerFragment newInstance(String jenis) {
+    public static MainActivityContainerFragment newInstance(String jenis, String accType) {
         MainActivityContainerFragment fragment = new MainActivityContainerFragment();
         Bundle args = new Bundle();
         args.putString(JENIS, jenis);
+        args.putString(ACC_TYPE, accType);
         fragment.setArguments(args);
         return fragment;
     }
@@ -34,6 +43,7 @@ public class MainActivityContainerFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             jenis = getArguments().getString(JENIS);
+            accType = getArguments().getString(ACC_TYPE);
         }
     }
 
@@ -56,9 +66,15 @@ public class MainActivityContainerFragment extends Fragment {
                         .commit();
                 break;
             case "class" :
-                getChildFragmentManager().beginTransaction()
-                        .replace(R.id.main_activity_student_frame_root, ClassFragment1.newInstance("teacher"), "class student root")
-                        .commit();
+                if (accType.equals("student")) {
+                    getChildFragmentManager().beginTransaction()
+                            .replace(R.id.main_activity_student_frame_root, ClassFragment1.newInstance("student"), "class student root")
+                            .commit();
+                } else {
+                    getChildFragmentManager().beginTransaction()
+                            .replace(R.id.main_activity_student_frame_root, ClassFragment1.newInstance("teacher"), "class student root")
+                            .commit();
+                }
                 break;
             case "profil" :
                 getChildFragmentManager().beginTransaction()

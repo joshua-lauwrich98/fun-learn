@@ -311,7 +311,7 @@ public class LoginActivity extends AppCompatActivity implements StudentTypeSetup
 
         @Override
         protected void onPostExecute(String string) {
-            Toast.makeText(getApplicationContext(), "Message sent!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "Message sent!", Toast.LENGTH_SHORT).show();
         }
     }
 

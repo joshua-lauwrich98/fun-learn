@@ -46,6 +46,7 @@ public class MainActivityStudent extends AppCompatActivity {
     private AppBarLayout barLayout;
     private int high;
     private int position;
+    private String accType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,6 +132,20 @@ public class MainActivityStudent extends AppCompatActivity {
 
             }
         });
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("acountType");
+        ref.keepSynced(true);
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                accType = dataSnapshot.getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
@@ -183,15 +198,15 @@ public class MainActivityStudent extends AppCompatActivity {
             //return PlaceholderFragment.newInstance(position + 1);
             switch (position) {
                 case 0 :
-                    return MainActivityContainerFragment.newInstance("personal");
+                    return MainActivityContainerFragment.newInstance("personal", accType);
                 case 1 :
-                    return MainActivityContainerFragment.newInstance("play");
+                    return MainActivityContainerFragment.newInstance("play", accType);
                 case 2 :
-                    return MainActivityContainerFragment.newInstance("class");
+                    return MainActivityContainerFragment.newInstance("class", accType);
                 case 3 :
-                    return MainActivityContainerFragment.newInstance("profil");
+                    return MainActivityContainerFragment.newInstance("profil", accType);
                 default :
-                    return MainActivityContainerFragment.newInstance("personal");
+                    return MainActivityContainerFragment.newInstance("personal", accType);
             }
         }
 

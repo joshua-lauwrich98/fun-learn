@@ -43,7 +43,22 @@
         <activity
             android:name=".ClassActivity"
             android:label="@string/title_activity_class"
-            android:theme="@style/FunLearnLightTheme"></activity>
+            android:theme="@style/FunLearnLightTheme" />
+
+        <service
+            android:name=".service.ClassAnnouncement"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver
+            android:name=".receiver.AnnouncementReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="anchovy.net.funlearn.receiver"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

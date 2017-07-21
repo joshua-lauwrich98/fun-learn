@@ -94,14 +94,14 @@
     <string name="dialog_fragment_add_friend_title">Confirm friend request?</string>
     <string name="dialog_fragment_add_friend_no">No</string>
     <string name="dialog_fragment_add_friend_notif" formatted="false">%s has been added as friend.</string>
-    <string name="dialog_fragment_rank_up_max">Congratulation you have reach the highest rank! Featured for the next grade is not available yet.</string>
+    <string name="dialog_fragment_rank_up_max">Congratulation you have reach the highest grade! Features for the next grade is not available yet.</string>
     <string name="dialog_fragment_profil_own_data_title">Are you sure ?</string>
-    <string name="dialog_fragment_profil_own_data_warning">You can\'t undo your action. Remember, this information really important for using features in this apps.</string>
+    <string name="dialog_fragment_profil_own_data_warning">You can\'t undo your action. Remember, this information is really important for using features in this app.</string>
     <string name="dialog_fragment_class_error">This field is empty</string>
     <string name="dialog_fragment_class_join_error">Class not found!</string>
     <string name="dialog_fragment_class_join_title">Insert class id :</string>
     <string name="dialog_fragment_class_join_warning">*ask your teacher for this id</string>
-    <string name="dialog_fragment_class_join_already">You already been a member of the class</string>
+    <string name="dialog_fragment_class_join_already">You have already been a member of the class</string>
     <string name="dialog_fragment_class_success">Join class succeeded</string>
 
 
@@ -151,4 +151,17 @@
     <string name="dialog_fragment_class_fragment_add_title">Class Name</string>
     <string name="dialog_fragment_class_fragment_add_max_member">Max Member</string>
     <string name="dialog_fragment_class_fragment_add_create_button">Create</string>
+    <string name="dialog_fragment_class_announcement_edit_title">Title</string>
+    <string name="dialog_fragment_class_announcement_edit_content">Content</string>
+    <string name="dialog_fragment_class_announcement_edit_day">Day</string>
+    <string name="dialog_fragment_class_announcement_edit_hour">Hour</string>
+    <string name="dialog_fragment_class_announcement_edit_minute">Minute</string>
+    <string name="dialog_fragment_class_announcement_edit_change_button">Change</string>
+
+    <string name="class_activity_announcement_fragment_created_text_templat">Created :\n%s</string>
+    <string name="class_activity_announcement_fragment_created_text_template">Expired on :\n%s</string>
+    <string name="class_activity_announcement_fragment_create_post_title_input">Title</string>
+    <string name="class_activity_announcement_fragment_create_post_desc_input">Content / Description</string>
+    <string name="class_activity_announcement_fragment_create_post_submit_button">Submit</string>
+    <string name="class_activity_announcement_fragment_create_post_progress_message">Posting your question....</string>
 </resources>

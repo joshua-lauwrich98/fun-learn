@@ -2,6 +2,7 @@ package anchovy.net.funlearn;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
@@ -19,6 +20,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import anchovy.net.funlearn.fragments.AnnouncementFragment;
+import anchovy.net.funlearn.fragments.CreateThreadFragment;
 
 public class ClassActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -61,7 +63,7 @@ public class ClassActivity extends AppCompatActivity
 
         if (jenis.equals("student")) navigationView.getMenu().getItem(3).getSubMenu().getItem(1).setVisible(false);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, new AnnouncementFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, AnnouncementFragment.newInstance(jenis, uid)).commit();
 
         getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#000000\">" + title + "</font>")));
     }
@@ -92,10 +94,10 @@ public class ClassActivity extends AppCompatActivity
 
         // Activate the navigation drawer toggle
         if (id == R.id.action_settings) {
-            if(drawer.isDrawerOpen(Gravity.RIGHT)) {
-                drawer.closeDrawer(Gravity.RIGHT);
+            if(drawer.isDrawerOpen(Gravity.END)) {
+                drawer.closeDrawer(Gravity.END);
             } else {
-                drawer.openDrawer(Gravity.RIGHT);
+                drawer.openDrawer(Gravity.END);
             }
             return true;
         }
@@ -105,20 +107,24 @@ public class ClassActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.class_announcement) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, new AnnouncementFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, AnnouncementFragment.newInstance(jenis, uid)).addToBackStack(null).commit();
         } else if (id == R.id.class_assignment) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, new AnnouncementFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, AnnouncementFragment.newInstance(jenis, uid)).addToBackStack(null).commit();
         } else if (id == R.id.class_home) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, new AnnouncementFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, AnnouncementFragment.newInstance(jenis, uid)).addToBackStack(null).commit();
         } else if (id == R.id.class_make_question) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, new AnnouncementFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, CreateThreadFragment.newInstance(uid)).addToBackStack(null).commit();
+        } else if (id == R.id.class_info) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, AnnouncementFragment.newInstance(jenis, uid)).addToBackStack(null).commit();
+        } else if (id == R.id.class_disband) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, AnnouncementFragment.newInstance(jenis, uid)).addToBackStack(null).commit();
         } else {
-            getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, new AnnouncementFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, AnnouncementFragment.newInstance(jenis, uid)).addToBackStack(null).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.class_activity_drawer_layout);

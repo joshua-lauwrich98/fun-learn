@@ -203,9 +203,27 @@ public class ClassFragment1 extends Fragment implements View.OnClickListener {
 
                                         @Override
                                         public void onCancelled(DatabaseError databaseError) {
-
+                                            Toast.makeText(getContext(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                                         }
                                     });
+
+                                    final DatabaseReference ref2 = dataSnapshot.child(uid).child("curr").getRef();
+                                    ref2.addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot dataSnapshot) {
+                                            ref2.setValue(Integer.toString(Integer.parseInt(dataSnapshot.getValue().toString())+1));
+                                        }
+
+                                        @Override
+                                        public void onCancelled(DatabaseError databaseError) {
+                                            Toast.makeText(getContext(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+                                    DatabaseReference ref3 = FirebaseDatabase.getInstance().getReference().child("Class")
+                                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                    ref3.child(uid).child("uid").setValue(uid);
+                                    ref3.child(uid).child("name").setValue(dataSnapshot.child(uid).child("name").getValue().toString());
 
                                     Toast.makeText(getContext(), getResources().getString(R.string.dialog_fragment_class_success), Toast.LENGTH_SHORT).show();
                                 }
