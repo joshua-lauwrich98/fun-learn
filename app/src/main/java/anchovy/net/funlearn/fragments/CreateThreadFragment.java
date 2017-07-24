@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -32,6 +33,7 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.util.UUID;
 
+import anchovy.net.funlearn.ClassActivity;
 import anchovy.net.funlearn.R;
 
 /**
@@ -40,22 +42,29 @@ import anchovy.net.funlearn.R;
 public class CreateThreadFragment extends Fragment implements View.OnClickListener {
 
     private static final String UID = "uid";
+    private static final String JENIS = "jenis";
     private static final int GALERY_CODE = 1;
 
-    private String uid;
+    private String uid, jenis;
     private EditText title, desc;
     private Uri resultUri;
     private ProgressDialog progress;
     private ImageButton addImage;
 
+    public interface DrawerLocked {
+        public void setDrawerLocked(boolean shouldLock);
+        public void setStatus(boolean status);
+    }
+
     public CreateThreadFragment() {
         // Required empty public constructor
     }
 
-    public static CreateThreadFragment newInstance(String uid) {
+    public static CreateThreadFragment newInstance(String jenis, String uid) {
 
         Bundle args = new Bundle();
         args.putString(UID, uid);
+        args.putString(JENIS, jenis);
         CreateThreadFragment fragment = new CreateThreadFragment();
         fragment.setArguments(args);
         return fragment;
@@ -67,7 +76,15 @@ public class CreateThreadFragment extends Fragment implements View.OnClickListen
 
         if (getArguments() != null) {
             uid = getArguments().getString(UID);
+            jenis = getArguments().getString(JENIS);
         }
+
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        menu.clear();
     }
 
     @Override
@@ -85,7 +102,11 @@ public class CreateThreadFragment extends Fragment implements View.OnClickListen
         addImage.setOnClickListener(this);
         postButton.setOnClickListener(this);
 
+        progress = new ProgressDialog(getContext());
+
         resultUri = null;
+
+        ((DrawerLocked)getActivity()).setDrawerLocked(true);
 
         return view;
     }
@@ -98,7 +119,7 @@ public class CreateThreadFragment extends Fragment implements View.OnClickListen
                 galeryIntent.setType("image/*");
                 startActivityForResult(galeryIntent, GALERY_CODE);
                 break;
-            case R.id.login_activity_create_blog_fragment_post_desc_input :
+            case R.id.login_activity_create_blog_fragment_submit_button :
                 final String titleText = title.getText().toString().trim();
                 final String descText = desc.getText().toString().trim();
 
@@ -117,37 +138,111 @@ public class CreateThreadFragment extends Fragment implements View.OnClickListen
                 final String randPath = UUID.randomUUID().toString();
                 StorageReference filePath = FirebaseStorage.getInstance().getReference().child("Class Post").child(uid).child(randPath);
 
-                filePath.putFile(resultUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        final Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                        final DatabaseReference classRef = FirebaseDatabase.getInstance().getReference()
-                                .child("Class List").child(uid);
-                        classRef.child("post").child(randPath).child("title").setValue(titleText);
-                        classRef.child("post").child(randPath).child("desc").setValue(descText);
-                        classRef.child("post").child(randPath).child("photo").setValue(downloadUrl);
+                if (resultUri != null) {
+                    filePath.putFile(resultUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                            final DatabaseReference classRef = FirebaseDatabase.getInstance().getReference()
+                                    .child("Class List").child(uid);
+                            classRef.child("post").child(randPath).child("title").setValue(titleText);
+                            classRef.child("post").child(randPath).child("desc").setValue(descText);
+                            classRef.child("post").child(randPath).child("photo").setValue(downloadUrl.toString());
+                            classRef.child("post").child(randPath).child("path").setValue(randPath);
+                            classRef.child("post").child(randPath).child("like").child("ADMIN").setValue("ADMIN");
+                            classRef.child("post").child(randPath).child("dislike").child("ADMIN").setValue("ADMIN");
+                            DatabaseReference commentRef =  classRef.child("post").child(randPath).child("comment").push();
+                            commentRef.child("photo").setValue("ADMIN");
+                            commentRef.child("fullname").setValue("ADMIN");
+                            commentRef.child("content").setValue("ADMIN");
+                            commentRef.child("date").setValue("ADMIN");
+                            commentRef.child("time").setValue("ADMIN");
 
-                        FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                classRef.child("post").child(randPath).child("fullname").setValue(dataSnapshot.child("fullname").getValue().toString());
-                                progress.dismiss();
+                            FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    classRef.child("post").child(randPath).child("fullname").setValue(dataSnapshot.child("fullname").getValue().toString());
+                                    progress.dismiss();
+
+                                    if (getActivity().getSupportFragmentManager().getFragments().get(getActivity().getSupportFragmentManager().getBackStackEntryCount() - 1) instanceof CreateThreadFragment) {
+                                        getActivity().getSupportFragmentManager().popBackStackImmediate();
+                                    }
+
+                                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, AnnouncementFragment.newInstance(jenis, uid)).addToBackStack(null).commit();
+
+//                                while (getActivity().getSupportFragmentManager().getBackStackEntryCount() != 2) {
+//                                                                    getActivity().getSupportFragmentManager().popBackStackImmediate();
+//                                }
+
+                                    ((ClassActivity)getActivity()).setStatus(false);
+
+                                    getActivity().onBackPressed();
+
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+                                    Toast.makeText(getContext(), getResources().getString(R.string.login_activity_internet_error), Toast.LENGTH_SHORT).show();
+                                    progress.dismiss();
+                                }
+                            });
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getContext(), getResources().getString(R.string.login_activity_internet_error), Toast.LENGTH_SHORT).show();
+                            progress.dismiss();
+                        }
+                    });
+                } else {
+                    final DatabaseReference classRef = FirebaseDatabase.getInstance().getReference()
+                            .child("Class List").child(uid);
+                    classRef.child("post").child(randPath).child("title").setValue(titleText);
+                    classRef.child("post").child(randPath).child("desc").setValue(descText);
+                    classRef.child("post").child(randPath).child("photo").setValue("null");
+                    classRef.child("post").child(randPath).child("path").setValue(randPath);
+                    classRef.child("post").child(randPath).child("like").child("ADMIN").setValue("ADMIN");
+                    classRef.child("post").child(randPath).child("dislike").child("ADMIN").setValue("ADMIN");
+                    DatabaseReference commentRef =  classRef.child("post").child(randPath).child("comment").push();
+                    commentRef.child("photo").setValue("ADMIN");
+                    commentRef.child("fullname").setValue("ADMIN");
+                    commentRef.child("content").setValue("ADMIN");
+                    commentRef.child("date").setValue("ADMIN");
+                    commentRef.child("time").setValue("ADMIN");
+
+
+                    FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            classRef.child("post").child(randPath).child("fullname").setValue(dataSnapshot.child("fullname").getValue().toString());
+                            progress.dismiss();
+
+                            if (getActivity().getSupportFragmentManager().getFragments().get(getActivity().getSupportFragmentManager().getBackStackEntryCount() - 1) instanceof CreateThreadFragment) {
+                                getActivity().getSupportFragmentManager().popBackStackImmediate();
                             }
 
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-                                Toast.makeText(getContext(), getResources().getString(R.string.login_activity_internet_error), Toast.LENGTH_SHORT).show();
-                                progress.dismiss();
-                            }
-                        });
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getContext(), getResources().getString(R.string.login_activity_internet_error), Toast.LENGTH_SHORT).show();
-                        progress.dismiss();
-                    }
-                });
+//                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, AnnouncementFragment.newInstance(jenis, uid)).addToBackStack(null).commit();
+
+
+
+                            ((ClassActivity)getActivity()).setStatus(false);
+
+                            getActivity().onBackPressed();
+//                                while (getActivity().getSupportFragmentManager().getBackStackEntryCount() != 2) {
+//                                                                    getActivity().getSupportFragmentManager().popBackStackImmediate();
+//                                }
+
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            Toast.makeText(getContext(), getResources().getString(R.string.login_activity_internet_error), Toast.LENGTH_SHORT).show();
+                            progress.dismiss();
+                        }
+                    });
+                }
+
+
                 break;
         }
     }
@@ -176,4 +271,11 @@ public class CreateThreadFragment extends Fragment implements View.OnClickListen
             }
         }
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ((DrawerLocked)getActivity()).setDrawerLocked(false);
+    }
+
 }

@@ -81,34 +81,6 @@
     <string name="main_activity_student_tab_title4">Profile</string>
     <string name="main_activity_student_play_cancel">Cancel</string>
     <string name="main_activity_student_play_time_title">Finding opponent :</string>
-
-
-    <string name="dialog_fragment_profile_username_change_title">Insert new username :</string>
-    <string name="dialog_fragment_profil_username_change_ok_button">ok</string>
-    <string name="dialog_fragment_profil_username_change_cancel_button">cancel</string>
-    <string name="dialog_fragment_profil_photo_change_select_resource">From Galery</string>
-    <string name="dialog_fragment_profil_photo_change_select_resource2">From Camera</string>
-    <string name="dialog_fragment_profil_photo_change_progress_dialog_message">Changing photo....</string>
-    <string name="dialog_fragment_profile_add_friend_title">Insert your friend\'s id :</string>
-    <string name="dialog_fragment_profile_add_friend_desc"><![CDATA[*id can be seen on Profil > MyProfil]]></string>
-    <string name="dialog_fragment_add_friend_title">Confirm friend request?</string>
-    <string name="dialog_fragment_add_friend_no">No</string>
-    <string name="dialog_fragment_add_friend_notif" formatted="false">%s has been added as friend.</string>
-    <string name="dialog_fragment_rank_up_max">Congratulation you have reach the highest grade! Features for the next grade is not available yet.</string>
-    <string name="dialog_fragment_profil_own_data_title">Are you sure ?</string>
-    <string name="dialog_fragment_profil_own_data_warning">You can\'t undo your action. Remember, this information is really important for using features in this app.</string>
-    <string name="dialog_fragment_class_error">This field is empty</string>
-    <string name="dialog_fragment_class_join_error">Class not found!</string>
-    <string name="dialog_fragment_class_join_title">Insert class id :</string>
-    <string name="dialog_fragment_class_join_warning">*ask your teacher for this id</string>
-    <string name="dialog_fragment_class_join_already">You have already been a member of the class</string>
-    <string name="dialog_fragment_class_success">Join class succeeded</string>
-
-
-    <string name="notification_add_friend_ticker">You have new friend request!</string>
-    <string name="notification_add_friend_content" formatted="false">%s sent a friend request</string>
-
-
     <string name="main_activity_student_profile_statistic_general">General</string>
     <string name="main_activity_student_profile_statistic_total_games">Total game :</string>
     <string name="main_activity_student_profile_statistic_total_win">Total win :</string>
@@ -138,16 +110,28 @@
     <string name="main_activity_student_class_fragment_join_class">Join Class</string>
     <string name="main_activity_student_class_fragment_add_class">Add Class</string>
 
-
-    <string name="class_activity_menu_more">More</string>
-    <string name="class_activity_announcement_title">Announcement</string>
-    <string name="class_activity_assignment_title">Task</string>
-    <string name="class_activity_forum_title">FORUM</string>
-    <string name="class_activity_main_menu_title">Main Menu</string>
-    <string name="class_activity_make_question_title">Create Question</string>
-    <string name="class_activity_another">OTHER</string>
-    <string name="class_activity_class_info">Class Info</string>
-    <string name="class_activity_disband">Disband Class</string>
+    <!-- Dialog Fragment -->
+    <string name="dialog_fragment_profile_username_change_title">Insert new username :</string>
+    <string name="dialog_fragment_profil_username_change_ok_button">ok</string>
+    <string name="dialog_fragment_profil_username_change_cancel_button">cancel</string>
+    <string name="dialog_fragment_profil_photo_change_select_resource">From Galery</string>
+    <string name="dialog_fragment_profil_photo_change_select_resource2">From Camera</string>
+    <string name="dialog_fragment_profil_photo_change_progress_dialog_message">Changing photo....</string>
+    <string name="dialog_fragment_profile_add_friend_title">Insert your friend\'s id :</string>
+    <string name="dialog_fragment_profile_add_friend_desc"><![CDATA[*id can be seen on Profil > MyProfil]]></string>
+    <string name="dialog_fragment_add_friend_title">Confirm friend request?</string>
+    <string name="dialog_fragment_add_friend_no">No</string>
+    <string name="dialog_fragment_add_friend_notif" formatted="false">%s has been added as friend.</string>
+    <string name="dialog_fragment_rank_up_max">Congratulation you have reach the highest grade! Features for the next grade is not available yet.</string>
+    <string name="dialog_fragment_profil_own_data_title">Are you sure ?</string>
+    <string name="dialog_fragment_profil_own_data_warning">You can\'t undo your action. Remember, this information is really important for using features in this app.</string>
+    <string name="dialog_fragment_class_error">This field is empty</string>
+    <string name="dialog_fragment_class_error2">Max member are 20 people. Using premium account can increase max member limit.</string>
+    <string name="dialog_fragment_class_join_error">Class not found!</string>
+    <string name="dialog_fragment_class_join_title">Insert class id :</string>
+    <string name="dialog_fragment_class_join_warning">*ask your teacher for this id</string>
+    <string name="dialog_fragment_class_join_already">You have already been a member of the class</string>
+    <string name="dialog_fragment_class_success">Join class succeeded</string>
     <string name="dialog_fragment_class_fragment_add_title">Class Name</string>
     <string name="dialog_fragment_class_fragment_add_max_member">Max Member</string>
     <string name="dialog_fragment_class_fragment_add_create_button">Create</string>
@@ -157,11 +141,37 @@
     <string name="dialog_fragment_class_announcement_edit_hour">Hour</string>
     <string name="dialog_fragment_class_announcement_edit_minute">Minute</string>
     <string name="dialog_fragment_class_announcement_edit_change_button">Change</string>
+    <string name="dialog_fragment_class_max_reach">Member limit exceeded!</string>
 
+    <!-- Notification -->
+    <string name="notification_add_friend_ticker">You have new friend request!</string>
+    <string name="notification_add_friend_content" formatted="false">%s sent a friend request</string>
+
+    <!-- Class Activity -->
+    <string name="class_activity_menu_more">More</string>
+    <string name="class_activity_announcement_title">Announcement</string>
+    <string name="class_activity_assignment_title">Task</string>
+    <string name="class_activity_forum_title">FORUM</string>
+    <string name="class_activity_main_menu_title">Main Menu</string>
+    <string name="class_activity_make_question_title">Create Question</string>
+    <string name="class_activity_another">OTHER</string>
+    <string name="class_activity_class_info">Class Info</string>
+    <string name="class_activity_disband">Disband Class</string>
     <string name="class_activity_announcement_fragment_created_text_templat">Created :\n%s</string>
     <string name="class_activity_announcement_fragment_created_text_template">Expired on :\n%s</string>
     <string name="class_activity_announcement_fragment_create_post_title_input">Title</string>
     <string name="class_activity_announcement_fragment_create_post_desc_input">Content / Description</string>
     <string name="class_activity_announcement_fragment_create_post_submit_button">Submit</string>
     <string name="class_activity_announcement_fragment_create_post_progress_message">Posting your question....</string>
+    <string name="disband_class_announcement">The class has been disbanded by your teacher.</string>
+    <string name="class_activity_dialog_create_post_back_title">You sure want to back?</string>
+    <string name="class_activity_dialog_create_post_back_content">The data will be lost.</string>
+    <string name="class_activity_dialog_leave_class_back_title">You sure want to leave class?</string>
+    <string name="class_activity_dialog_leave_class_back_content">Data berupa tugas, nilai, pertanyaan, dan komentar akan hilang.</string>
+
+    <!-- Other -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_class">ClassActivity</string>
+    <string name="action_settings">Settings</string>
 </resources>

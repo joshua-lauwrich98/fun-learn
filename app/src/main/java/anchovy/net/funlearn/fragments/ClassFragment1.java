@@ -182,15 +182,28 @@ public class ClassFragment1 extends Fragment implements View.OnClickListener {
                 public void onClick(View view) {
                     final String uid = input.getText().toString();
                     final String myUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+                    if (uid.isEmpty()) {
+                        input.setError(getResources().getString(R.string.dialog_fragment_class_error));
+                        return;
+                    }
+
                     DatabaseReference classRef = FirebaseDatabase.getInstance().getReference().child("Class List");
                     classRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
+
                             if (!dataSnapshot.hasChild(uid)) {
                                 Toast.makeText(getContext(), getResources().getString(R.string.dialog_fragment_class_join_error), Toast.LENGTH_SHORT).show();
+                                return;
                             } else {
+                                int curr = Integer.parseInt(dataSnapshot.child(uid).child("curr").getValue().toString());
+                                int max = Integer.parseInt(dataSnapshot.child(uid).child("max").getValue().toString());
+
                                 if (dataSnapshot.child(uid).child("member").hasChild(myUid)) {
                                     Toast.makeText(getContext(), getResources().getString(R.string.dialog_fragment_class_join_already), Toast.LENGTH_SHORT).show();
+                                } else if (curr >= max) {
+                                    Toast.makeText(getContext(), getResources().getString(R.string.dialog_fragment_class_max_reach), Toast.LENGTH_SHORT).show();
                                 } else {
                                     final DatabaseReference ref = dataSnapshot.child(uid).child("member").child(myUid).getRef();
                                     DatabaseReference user = FirebaseDatabase.getInstance().getReference().child("Users").child(myUid);
@@ -199,6 +212,8 @@ public class ClassFragment1 extends Fragment implements View.OnClickListener {
                                         public void onDataChange(DataSnapshot dataSnapshot) {
                                             ref.child("fullname").setValue(dataSnapshot.child("fullname").getValue().toString());
                                             ref.child("photo").setValue(dataSnapshot.child("photo").getValue().toString());
+                                            ref.child("uid").setValue(myUid);
+                                            ref.child("username").setValue(dataSnapshot.child("username").getValue().toString());
                                         }
 
                                         @Override
@@ -225,6 +240,7 @@ public class ClassFragment1 extends Fragment implements View.OnClickListener {
                                     ref3.child(uid).child("uid").setValue(uid);
                                     ref3.child(uid).child("name").setValue(dataSnapshot.child(uid).child("name").getValue().toString());
 
+                                    dismiss();
                                     Toast.makeText(getContext(), getResources().getString(R.string.dialog_fragment_class_success), Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -270,7 +286,6 @@ public class ClassFragment1 extends Fragment implements View.OnClickListener {
                 @Override
                 public void onClick(View view) {
                     submitForm();
-                    dismiss();
                 }
             });
 
@@ -345,6 +360,7 @@ public class ClassFragment1 extends Fragment implements View.OnClickListener {
             classOnly.child("uid").setValue(uid);
             classOnly.child("name").setValue(nameInput.getText().toString());
 
+            dismiss();
             Toast.makeText(getContext(), getResources().getString(R.string.dialog_fragment_class_success), Toast.LENGTH_SHORT).show();
         }
 
@@ -366,6 +382,13 @@ public class ClassFragment1 extends Fragment implements View.OnClickListener {
             if (passwordText.isEmpty()) {
                 max.setErrorEnabled(true);
                 max.setError(getResources().getString(R.string.dialog_fragment_class_error));
+                requestFocus(maxInput);
+                return false;
+            }
+
+            if (Integer.parseInt(passwordText) > 20) {
+                max.setErrorEnabled(true);
+                max.setError(getResources().getString(R.string.dialog_fragment_class_error2));
                 requestFocus(maxInput);
                 return false;
             }

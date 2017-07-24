@@ -82,19 +82,23 @@ public class AnnouncementFragment extends Fragment {
         announceRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                title.setText(dataSnapshot.child("title").getValue().toString());
-                content.setText(dataSnapshot.child("content").getValue().toString());
-                String createdText = String.format(Locale.getDefault(),
-                        getResources().getString(R.string.class_activity_announcement_fragment_created_text_templat),
-                        dataSnapshot.child("created").getValue().toString());
-                created.setText(createdText);
-
                 try {
-                    String expiredText = String.format(Locale.getDefault(),
-                            getResources().getString(R.string.class_activity_announcement_fragment_created_text_template),
-                            dataSnapshot.child("expired").getValue().toString());
-                    expired.setText(expiredText);
-                } catch (NullPointerException e) {
+                    title.setText(dataSnapshot.child("title").getValue().toString());
+                    content.setText(dataSnapshot.child("content").getValue().toString());
+                    String createdText = String.format(Locale.getDefault(),
+                            getResources().getString(R.string.class_activity_announcement_fragment_created_text_templat),
+                            dataSnapshot.child("created").getValue().toString());
+                    created.setText(createdText);
+
+                    try {
+                        String expiredText = String.format(Locale.getDefault(),
+                                getResources().getString(R.string.class_activity_announcement_fragment_created_text_template),
+                                dataSnapshot.child("expired").getValue().toString());
+                        expired.setText(expiredText);
+                    } catch (NullPointerException e) {
+                        e.printStackTrace();
+                    }
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -174,7 +178,6 @@ public class AnnouncementFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     submitForm();
-                    dismiss();
                 }
             });
 
@@ -247,6 +250,7 @@ public class AnnouncementFragment extends Fragment {
             intent.putExtra("time", time);
             intent.putExtra("uid", uid);
             getActivity().startService(intent);
+            dismiss();
         }
     }
 }

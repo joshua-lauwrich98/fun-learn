@@ -19,7 +19,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_class"
         app:menu="@menu/activity_class_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

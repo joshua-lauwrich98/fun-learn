@@ -85,32 +85,6 @@
     <string name="main_activity_student_tab_title4">Profil</string>
     <string name="main_activity_student_play_cancel">Batal</string>
     <string name="main_activity_student_play_time_title">Mencari lawan :</string>
-
-    <string name="dialog_fragment_profile_username_change_title">Masukan username baru :</string>
-    <string name="dialog_fragment_profil_username_change_ok_button">ya</string>
-    <string name="dialog_fragment_profil_username_change_cancel_button">batalkan</string>
-    <string name="dialog_fragment_profil_photo_change_select_resource">Dari Galeri</string>
-    <string name="dialog_fragment_profil_photo_change_select_resource2">Dari Kamera</string>
-    <string name="dialog_fragment_profil_photo_change_progress_dialog_message">Mengganti foto....</string>
-    <string name="dialog_fragment_profile_add_friend_title">Masukan id teman :</string>
-    <string name="dialog_fragment_profile_add_friend_desc"><![CDATA[*id dapat dilihat pada menu Profil > MyProfil]]></string>
-    <string name="dialog_fragment_profil_add_friend_toast_notif">Permintaan pertemanan sudah dikirim</string>
-    <string name="dialog_fragment_add_friend_title">Konfirmasi pertemanan?</string>
-    <string name="dialog_fragment_add_friend_no">Tidak</string>
-    <string name="dialog_fragment_add_friend_notif" formatted="false">%s telah ditambahkan sebagai teman.</string>
-    <string name="dialog_fragment_rank_up_max">Selamat anda telah mencapai rank tertinggi! Layanan untuk jenjang selanjutnya belum tersedia.</string>
-    <string name="dialog_fragment_profil_own_data_title">Yakin sudah naik kelas ?</string>
-    <string name="dialog_fragment_profil_own_data_warning">Anda tidak bisa kembali pada kelas sebelumnya setelah memilih \'ya\'. Ingat, informasi ini sangat diperlukan untuk fitur-fitur yang ada pada aplikasi ini.</string>
-    <string name="dialog_fragment_class_error">Bagian ini masih kosong</string>
-    <string name="dialog_fragment_class_join_error">Kelas tidak ditemukan!</string>
-    <string name="dialog_fragment_class_join_title">Masukkan id kelas :</string>
-    <string name="dialog_fragment_class_join_warning">*id hanya dapat diakses oleh account guru</string>
-    <string name="dialog_fragment_class_join_already">Anda sudah menjadi anggota kelas</string>
-    <string name="dialog_fragment_class_success">Sukses masuk ke dalam kelas</string>
-
-
-    <string name="notification_add_friend_ticker">Anda memmiliki permintaan pertemanan!</string>
-    <string name="notification_add_friend_content" formatted="false">%s mengirimkan anda permintaan pertemanan</string>
     <string name="main_activity_student_profile_statistic_general">Umum</string>
     <string name="main_activity_student_profile_statistic_total_games">Total permainan :</string>
     <string name="main_activity_student_profile_statistic_total_win">Total kemenangan :</string>
@@ -140,20 +114,29 @@
     <string name="main_activity_student_class_fragment_join_class">Masuk Kelas</string>
     <string name="main_activity_student_class_fragment_add_class">Tambah Kelas</string>
 
-    <string name="title_activity_class">ClassActivity</string>
-    <string name="action_settings">Settings</string>
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="class_activity_menu_more">Lebih</string>
-    <string name="class_activity_announcement_title">Pengumuman</string>
-    <string name="class_activity_assignment_title">Tugas</string>
-    <string name="class_activity_forum_title">FORUM</string>
-    <string name="class_activity_main_menu_title">Halaman Utama</string>
-    <string name="class_activity_make_question_title">Buat Pertanyaan</string>
-    <string name="class_activity_another">LAINNYA</string>
-    <string name="class_activity_class_info">Info Kelas</string>
-    <string name="class_activity_disband">Bubarkan Kelas</string>
+    <!-- Dialog Fragment -->
+    <string name="dialog_fragment_profile_username_change_title">Masukan username baru :</string>
+    <string name="dialog_fragment_profil_username_change_ok_button">ya</string>
+    <string name="dialog_fragment_profil_username_change_cancel_button">batalkan</string>
+    <string name="dialog_fragment_profil_photo_change_select_resource">Dari Galeri</string>
+    <string name="dialog_fragment_profil_photo_change_select_resource2">Dari Kamera</string>
+    <string name="dialog_fragment_profil_photo_change_progress_dialog_message">Mengganti foto....</string>
+    <string name="dialog_fragment_profile_add_friend_title">Masukan id teman :</string>
+    <string name="dialog_fragment_profile_add_friend_desc"><![CDATA[*id dapat dilihat pada menu Profil > MyProfil]]></string>
+    <string name="dialog_fragment_profil_add_friend_toast_notif">Permintaan pertemanan sudah dikirim</string>
+    <string name="dialog_fragment_add_friend_title">Konfirmasi pertemanan?</string>
+    <string name="dialog_fragment_add_friend_no">Tidak</string>
+    <string name="dialog_fragment_add_friend_notif" formatted="false">%s telah ditambahkan sebagai teman.</string>
+    <string name="dialog_fragment_rank_up_max">Selamat anda telah mencapai rank tertinggi! Layanan untuk jenjang selanjutnya belum tersedia.</string>
+    <string name="dialog_fragment_profil_own_data_title">Yakin sudah naik kelas ?</string>
+    <string name="dialog_fragment_profil_own_data_warning">Anda tidak bisa kembali pada kelas sebelumnya setelah memilih \'ya\'. Ingat, informasi ini sangat diperlukan untuk fitur-fitur yang ada pada aplikasi ini.</string>
+    <string name="dialog_fragment_class_error">Bagian ini masih kosong</string>
+    <string name="dialog_fragment_class_error2">Maksimal anggota adalah 20 orang. Penggunaan akun premium dapat menambahkan batas maksimum anggota.</string>
+    <string name="dialog_fragment_class_join_error">Kelas tidak ditemukan!</string>
+    <string name="dialog_fragment_class_join_title">Masukkan id kelas :</string>
+    <string name="dialog_fragment_class_join_warning">*id hanya dapat diakses oleh account guru</string>
+    <string name="dialog_fragment_class_join_already">Anda sudah menjadi anggota kelas</string>
+    <string name="dialog_fragment_class_success">Sukses masuk ke dalam kelas</string>
     <string name="dialog_fragment_class_fragment_add_title">Nama Kelas</string>
     <string name="dialog_fragment_class_fragment_add_max_member">Maksimal Anggota</string>
     <string name="dialog_fragment_class_fragment_add_create_button">Buat</string>
@@ -163,11 +146,39 @@
     <string name="dialog_fragment_class_announcement_edit_hour">Jam</string>
     <string name="dialog_fragment_class_announcement_edit_minute">Menit</string>
     <string name="dialog_fragment_class_announcement_edit_change_button">Ubah</string>
+    <string name="dialog_fragment_class_max_reach">Kelas sudah mencapai batas maksimum member!</string>
 
+    <!-- Class Activity -->
+    <string name="class_activity_menu_more">Lebih</string>
+    <string name="class_activity_announcement_title">Pengumuman</string>
+    <string name="class_activity_assignment_title">Tugas</string>
+    <string name="class_activity_forum_title">FORUM</string>
+    <string name="class_activity_main_menu_title">Halaman Utama</string>
+    <string name="class_activity_make_question_title">Buat Pertanyaan</string>
+    <string name="class_activity_another">LAINNYA</string>
+    <string name="class_activity_class_info">Info Kelas</string>
+    <string name="class_activity_disband">Bubarkan Kelas</string>
     <string name="class_activity_announcement_fragment_created_text_templat" formatted="false">Dibuat :\n%s</string>
     <string name="class_activity_announcement_fragment_created_text_template" formatted="false">Valid sampai :\n%s</string>
     <string name="class_activity_announcement_fragment_create_post_title_input">Judul</string>
     <string name="class_activity_announcement_fragment_create_post_desc_input">Isi / Deskripsi</string>
     <string name="class_activity_announcement_fragment_create_post_submit_button">Buat</string>
     <string name="class_activity_announcement_fragment_create_post_progress_message">Memasang pertanyaan....</string>
+    <string name="disband_class_announcement">Kelas sudah dibubarkan oleh guru Anda.</string>
+    <string name="class_activity_dialog_create_post_back_title">Yakin ingin kembali?</string>
+    <string name="class_activity_dialog_create_post_back_content">Data yang sudah diisi akan hilang.</string>
+    <string name="class_activity_dialog_leave_class_back_title">Yakin ingin keluar kelas?</string>
+    <!-- TODO: change this to english -->
+    <string name="class_activity_dialog_leave_class_back_content">Data berupa tugas, nilai, pertanyaan, dan komentar akan hilang.</string>
+
+    <!-- Other -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_class">ClassActivity</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Notification -->
+    <string name="notification_add_friend_ticker">Anda memmiliki permintaan pertemanan!</string>
+    <string name="notification_add_friend_content" formatted="false">%s mengirimkan anda permintaan pertemanan</string>
+
 </resources>

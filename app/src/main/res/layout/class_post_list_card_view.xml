@@ -10,18 +10,27 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="REMOVE"
+            android:layout_gravity="end"
+            android:visibility="gone"
+            android:id="@+id/class_activity_home_remove_button"/>
+
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/post_image"
+            android:layout_height="200dp"
+            android:id="@+id/class_activity_home_image_button_post"
             android:src="@drawable/add_button_class"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true" />
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:contentDescription="" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/post_title"
+            android:id="@+id/class_activity_home_post_title"
             android:padding="15dp"
             android:textStyle="normal|bold"
             android:textSize="18sp"
@@ -30,8 +39,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/post_description"
+            android:id="@+id/class_activity_home_post_desc"
             android:paddingBottom="15dp"
+            android:textSize="14sp"
             android:paddingEnd="15dp"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -41,14 +51,16 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/post_user_name"
+            android:id="@+id/class_activity_home_post_fullname"
             android:paddingBottom="15dp"
             android:paddingEnd="15dp"
+            android:textAlignment="textEnd"
+            android:layout_gravity="end"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:paddingStart="15dp"
             android:textSize="12sp"
-            android:hint="username" />
+            android:hint="fullname" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -57,16 +69,53 @@
             android:background="@android:color/transparent">
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 app:srcCompat="@mipmap/ic_thumb_up_black_24dp"
-                android:id="@+id/like_button"
-                android:layout_weight="1"
+                android:id="@+id/class_activity_home_post_like_button"
                 android:scaleType="fitStart"
                 android:background="@android:color/transparent"
                 android:layout_marginLeft="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:id="@+id/class_activity_home_post_like_count"
+                android:text="0"
+                android:textSize="17sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="5dp"/>
+
+            <ImageButton
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@mipmap/ic_thumb_down_black_24dp"
+                android:id="@+id/class_activity_home_post_dislike_button"
+                android:scaleType="fitStart"
+                android:background="@android:color/transparent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="0"
+                android:id="@+id/class_activity_home_post_dislike_count"
+                android:textSize="17sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="5dp"/>
+
         </LinearLayout>
 
     </LinearLayout>
