@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="FunLearnLightTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#B4D8E7</item>
+        <item name="colorPrimaryDark">#56BAEC</item>
+        <item name="colorAccent">#56BAEC</item>
+        <item name="textColorError">#f73b11</item>
+        <item name="android:windowBackground">@drawable/background_base</item>
+        <item name="android:textColorHighlight">@color/password_normal</item>
+        <item name="android:textColorLink">@color/password_strong</item>
+        <item name="android:navigationBarColor">@color/navigationBar</item>
+    </style>
+</resources>

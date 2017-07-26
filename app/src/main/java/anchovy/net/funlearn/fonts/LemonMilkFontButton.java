@@ -9,7 +9,7 @@ import android.widget.Button;
  * Created by DarKnight98 on 3/14/2017.
  */
 
-public class LemonMilkFontButton extends Button {
+public class LemonMilkFontButton extends android.support.v7.widget.AppCompatButton {
     public LemonMilkFontButton(Context context) {
         super(context);
         init();

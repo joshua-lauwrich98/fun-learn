@@ -69,11 +69,23 @@ public class ProfilFragmentStatistic extends Fragment {
                 int hour = day%24;
                 day /= 24;
 
-                String totalLearn = String.format(Locale.getDefault(), getResources().getString(R.string.main_activity_student_profile_statistic_template_hasil), day, hour, minute);
+                String totalLearn = "";
+
+                try {
+                    totalLearn = String.format(Locale.getDefault(), getResources().getString(R.string.main_activity_student_profile_statistic_template_hasil), day, hour, minute);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 int bestTimeTrial = Integer.parseInt(dataSnapshot.child("timeTrialBestScore").getValue().toString());
 
-                String bestTimeTrialText = String.format(Locale.getDefault(), getResources().getString(R.string.main_activity_student_profile_statistic_best_time_trial_template), bestTimeTrial);
+                String bestTimeTrialText = "";
+
+                try {
+                    bestTimeTrialText = String.format(Locale.getDefault(), getResources().getString(R.string.main_activity_student_profile_statistic_best_time_trial_template), bestTimeTrial);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 umumTotalGames.setText(dataSnapshot.child("totalGames").getValue().toString());
                 umumTotalWin.setText(dataSnapshot.child("totalWin").getValue().toString());

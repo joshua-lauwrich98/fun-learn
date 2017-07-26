@@ -6,8 +6,10 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.support.annotation.IntDef;
 import android.support.v4.app.NotificationCompat;
 
@@ -114,39 +116,53 @@ public class AddFriend extends Service {
                     String title = getResources().getString(R.string.app_name);
                     String content = String.format(Locale.getDefault(), getResources().getString(R.string.notification_add_friend_content), opName);
 
-                    NotificationCompat.Builder notif = new NotificationCompat.Builder(getApplicationContext());
-                    notif.setAutoCancel(true)
-                            .setSmallIcon(R.drawable.ic_launcher)
-                            .setTicker(ticker)
-                            .setContentTitle(title)
-                            .setContentText(ticker)
-                            .setWhen(System.currentTimeMillis())
-                            .setSubText(content)
-                            .setStyle(new NotificationCompat.BigTextStyle().bigText(ticker))
-                            .setStyle(new NotificationCompat.BigTextStyle().bigText(ticker))
-                            .setColor(0x75bef9)
-                            .setVibrate(new long[] {2, 2, 2})
-                            .setLights(0x75bef9, 2000, 1000);
+                    boolean show = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getBoolean(getResources().getString(R.string.preference_notification_switch_key), true);
 
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        notif.setCategory(Notification.CATEGORY_EVENT)
-                                .setPriority(Notification.PRIORITY_MAX);
-                    } else if (Build.VERSION.SDK_INT >= 16) {
-                        notif.setPriority(Notification.PRIORITY_MAX);
+                    if (show) {
+                        boolean vibrate = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getBoolean(getResources().getString(R.string.preference_notification_vibrate_key), true);
+                        boolean sound = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getBoolean(getResources().getString(R.string.preference_notification_sound_key), true);
+                        String text = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString(getResources().getString(R.string.preference_notification_ringtone_key), "DEFAULT_RINGTONE_URI");
+
+                        Uri ringtoneUri = Uri.parse(text);
+
+                        NotificationCompat.Builder notif = new NotificationCompat.Builder(getApplicationContext());
+                        notif.setAutoCancel(true)
+                                .setSmallIcon(R.drawable.ic_launcher)
+                                .setTicker(ticker)
+                                .setContentTitle(title)
+                                .setContentText(ticker)
+                                .setWhen(System.currentTimeMillis())
+                                .setSubText(content)
+                                .setStyle(new NotificationCompat.BigTextStyle().bigText(ticker))
+                                .setStyle(new NotificationCompat.BigTextStyle().bigText(ticker))
+                                .setColor(0x75bef9)
+                                .setLights(0x75bef9, 2000, 1000);
+
+                        if (vibrate) notif.setVibrate(new long[]{2, 2, 2});
+
+                        if (sound) notif.setSound(ringtoneUri);
+
+                        if (Build.VERSION.SDK_INT >= 21) {
+                            notif.setCategory(Notification.CATEGORY_EVENT)
+                                    .setPriority(Notification.PRIORITY_MAX);
+                        } else if (Build.VERSION.SDK_INT >= 16) {
+                            notif.setPriority(Notification.PRIORITY_MAX);
+                        }
+
+                        Intent i = new Intent(getApplicationContext(), GetStartedActivity.class);
+                        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+                        notif.setContentIntent(pendingIntent);
+
+                        NotificationManager nn = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                        Notification notify = new Notification();
+                        notify.flags = Notification.FLAG_SHOW_LIGHTS | Notification.FLAG_ONLY_ALERT_ONCE;
+                        nn.notify(2, notif.build());
                     }
-
-                    Intent i = new Intent(getApplicationContext(), GetStartedActivity.class);
-                    PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
-                    notif.setContentIntent(pendingIntent);
-
-                    NotificationManager nn = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                    Notification notify = new Notification();
-                    notify.flags = Notification.FLAG_SHOW_LIGHTS | Notification.FLAG_ONLY_ALERT_ONCE;
-                    nn.notify(2, notif.build());
 
                     SharedPreferences.Editor sp = getSharedPreferences("add_friend_notif", MODE_PRIVATE).edit();
                     sp.putBoolean("status", false);
                     sp.apply();
+
                 }
             }
 

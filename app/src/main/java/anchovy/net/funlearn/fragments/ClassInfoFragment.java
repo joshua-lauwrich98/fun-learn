@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -88,8 +89,29 @@ public class ClassInfoFragment extends Fragment {
                         .setMessage(getResources().getString(R.string.class_activity_dialog_leave_class_back_content))
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                //TODO: implement leave class
-                            }
+                                String uidUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                final DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                                ref.child("Class List").child(uid).child("member").child(uidUser).setValue(null);
+                                ref.child("Class").child(uidUser).child(uid).setValue(null);
+
+                                ref.child("Class List").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        int currMember = Integer.parseInt(dataSnapshot.child("curr").getValue().toString())-1;
+                                        if (currMember != 0) {
+                                            ref.child("Class List").child(uid).child("curr").setValue(Integer.toString(currMember));
+                                        } else {
+                                            ref.child("Class List").child(uid).setValue(null);
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                getActivity().finish();
+;                            }
                         })
                         .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
@@ -100,15 +122,17 @@ public class ClassInfoFragment extends Fragment {
             }
         });
 
-        Button show = (Button) view.findViewById(R.id.class_activity_class_info_show_member_button);
+        final Button show = (Button) view.findViewById(R.id.class_activity_class_info_show_member_button);
         show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(isShow) {
                     recyclerView.setVisibility(View.INVISIBLE);
+                    show.setText(getResources().getString(R.string.class_activity_class_info_fragment_show_member));
                     isShow = false;
                 } else {
                     recyclerView.setVisibility(View.VISIBLE);
+                    show.setText(getResources().getString(R.string.class_activity_class_info_fragment_hide_member));
                     isShow = true;
                 }
             }
@@ -127,8 +151,8 @@ public class ClassInfoFragment extends Fragment {
 
                 title.setText(dataSnapshot.child("name").getValue().toString());
                 created.setText(dataSnapshot.child("created").getValue().toString());
-                post.setText(dataSnapshot.child(Integer.toString(totalPost)).getValue().toString());
-                member.setText(dataSnapshot.child(memberText).getValue().toString());
+                post.setText(Integer.toString(totalPost));
+                member.setText(memberText);
             }
 
             @Override

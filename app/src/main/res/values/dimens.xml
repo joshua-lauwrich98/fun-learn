@@ -10,5 +10,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
-
+    <dimen name="nav_drawer_width">235dp</dimen>
+    <dimen name="divider_height">0.5dp</dimen>
 </resources>

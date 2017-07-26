@@ -1,7 +1,9 @@
 package anchovy.net.funlearn;
 
 import android.app.Application;
+import android.content.SharedPreferences;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.FirebaseDatabase;
@@ -18,6 +20,15 @@ public class FunLearn extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+//        SharedPreferences preference = PreferenceManager.getDefaultSharedPreferences(this);
+//        int theme = Integer.parseInt(preference.getString("theme", "1"));
+//
+//        if (theme == 1){
+//            setTheme(R.style.FunLearnLightTheme);
+//        } else {
+//            setTheme(R.style.FunLearnDarkTheme);
+//        }
 
         okhttp3.OkHttpClient okHttp3Client = new okhttp3.OkHttpClient();
         OkHttp3Downloader okHttp3Downloader = new OkHttp3Downloader(okHttp3Client);

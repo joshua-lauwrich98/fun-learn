@@ -12,7 +12,10 @@
     <color name="password_strong">#91ff30</color>
 
     <color name="navigationBar">#FFAEAE</color>
+    <color name="navigationBar2">#274257</color>
     <color name="background">#FFF0AA</color>
+    <color name="background2">#DFC184</color>
 
     <color name="inputOutline">#c2c2c2</color>
+    <color name="group_divider_color">#80CBC4</color>
 </resources>

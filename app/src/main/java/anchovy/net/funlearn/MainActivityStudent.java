@@ -4,6 +4,8 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
@@ -17,6 +19,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,29 +50,44 @@ public class MainActivityStudent extends AppCompatActivity {
     private int high;
     private int position;
     private String accType;
+    private String current, current2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         SharedPreferences preference = PreferenceManager.getDefaultSharedPreferences(this);
-        int theme = preference.getInt(THEME, 1);
+        current = preference.getString(getResources().getString(R.string.preference_display_language_key), "1");
+        current2 = preference.getString(getResources().getString(R.string.preference_display_theme_key), "1");
+
+        int theme = Integer.parseInt(preference.getString(THEME, "1"));
 
         if (theme == 1){
             setTheme(R.style.FunLearnLightTheme);
         } else {
-            setTheme(R.style.AppTheme);
+            setTheme(R.style.FunLearnDarkTheme);
         }
+
+        super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main_student);
 
         Intent intent = new Intent(this, AddFriend.class);
         startService(intent);
 
-        if (Build.VERSION.SDK_INT >= 23) {
-            getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar, getTheme()));
+        if (theme == 1) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar, getTheme()));
+            } else {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar));
+                }
+            }
         } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar));
+            if (Build.VERSION.SDK_INT >= 23) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar2, getTheme()));
+            } else {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar2));
+                }
             }
         }
 
@@ -236,6 +254,41 @@ public class MainActivityStudent extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String key = prefs.getString(getResources().getString(R.string.preference_display_language_key), "1");
+
+        if (!current.equals(key)) {
+            if(key.equals("1")) {
+                Locale myLocale = new Locale("id");
+                Resources res = getResources();
+                DisplayMetrics dm = res.getDisplayMetrics();
+                Configuration conf = res.getConfiguration();
+                conf.locale = myLocale;
+                res.updateConfiguration(conf, dm);
+                recreate();
+            } else {
+                Locale myLocale = new Locale("en");
+                Resources res = getResources();
+                DisplayMetrics dm = res.getDisplayMetrics();
+                Configuration conf = res.getConfiguration();
+                conf.locale = myLocale;
+                res.updateConfiguration(conf, dm);
+                recreate();
+            }
+        }
+
+        String theme = prefs.getString(THEME, "1");
+
+        if (!current2.equals(theme)) {
+            if (theme.equals("1")) {
+                setTheme(R.style.FunLearnLightTheme);
+                recreate();
+            } else {
+                setTheme(R.style.FunLearnDarkTheme);
+                recreate();
+            }
+        }
+
         FirebaseDatabase.getInstance().getReference().child("Statistic").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("status").setValue("online");
     }
 
@@ -245,6 +298,8 @@ public class MainActivityStudent extends AppCompatActivity {
 
         FirebaseDatabase.getInstance().getReference().child("Statistic").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("status").setValue("offline");
     }
+
+
 
     public static class CustomDialogAddFriend extends DialogFragment implements View.OnClickListener {
 

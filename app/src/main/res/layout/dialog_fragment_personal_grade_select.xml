@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/main_activity_student_dialog_personal_select_grade_sd"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="SD"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="2.5dp"
+        android:background="@drawable/background_profil_username"/>
+
+    <TextView
+        android:id="@+id/main_activity_student_dialog_personal_select_grade_smp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="SMP"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="2.5dp"
+        android:background="@drawable/background_profil_username"/>
+
+    <TextView
+        android:id="@+id/main_activity_student_dialog_personal_select_grade_sma"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="SMA"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+</LinearLayout>

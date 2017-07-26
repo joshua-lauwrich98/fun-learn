@@ -5,16 +5,139 @@
     android:layout_height="match_parent"
     tools:context="anchovy.net.funlearn.fragments.PersonalFragment1">
 
-
-    <TextView
-        android:id="@+id/textView2"
+    <anchovy.net.funlearn.fonts.LemonMilkFontTextView
+        android:id="@+id/main_activity_student_personal_fragment1_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintLeft_creator="1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/main_activity_student_play1_choose_mode"
+        android:textColor="@color/black"
+        android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="262dp"
-        android:layout_marginTop="405dp" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <anchovy.net.funlearn.fonts.LemonMilkFontTextView
+        android:id="@+id/main_activity_student_personal_fragment1_materi"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="55dp"
+        android:background="@drawable/main_background_square"
+        android:gravity="center"
+        android:text="MATERI"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        android:padding="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_student_personal_fragment1_title" />
+
+    <anchovy.net.funlearn.fonts.LemonMilkFontTextView
+        android:id="@+id/main_activity_student_personal_fragment1_latihan"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/main_background_square"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="LATIHAN"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:padding="15dp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_student_personal_fragment1_materi" />
+
+    <anchovy.net.funlearn.fonts.LemonMilkFontTextView
+        android:id="@+id/main_activity_student_personal_fragment1_latihan_waktu"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/main_background_square"
+        android:gravity="center"
+        android:text="LATIHAN DENGAN WAKTU"
+        android:textAlignment="center"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_student_personal_fragment1_latihan" />
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="300dp"-->
+        <!--android:layout_height="150dp"-->
+        <!--android:layout_marginTop="75dp"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="vertical"-->
+        <!--android:visibility="visible"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/main_activity_student_personal_fragment1_title">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="#ffe97c"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:padding="10dp">-->
+
+            <!--<anchovy.net.funlearn.fonts.SimplificaFontButton-->
+                <!--android:id="@+id/main_activity_student_play_fragment1_with_friend_klasik_button"-->
+                <!--android:layout_width="75dp"-->
+                <!--android:layout_height="75dp"-->
+                <!--android:layout_marginEnd="5dp"-->
+                <!--android:layout_marginRight="5dp"-->
+                <!--android:background="@drawable/main_background_square"-->
+                <!--android:text="SD"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="25sp" />-->
+
+            <!--<anchovy.net.funlearn.fonts.SimplificaFontButton-->
+                <!--android:id="@+id/main_activity_student_play_fragment1_with_friend_timetrial_button"-->
+                <!--android:layout_width="75dp"-->
+                <!--android:layout_height="75dp"-->
+                <!--android:layout_marginEnd="5dp"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:layout_marginRight="5dp"-->
+                <!--android:layout_marginStart="5dp"-->
+                <!--android:background="@drawable/main_background_square"-->
+                <!--android:text="SMP"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="25sp" />-->
+
+            <!--<anchovy.net.funlearn.fonts.SimplificaFontButton-->
+                <!--android:id="@+id/main_activity_student_play_fragment1_with_friend_timetrial_button"-->
+                <!--android:layout_width="75dp"-->
+                <!--android:layout_height="75dp"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:layout_marginStart="5dp"-->
+                <!--android:background="@drawable/main_background_square"-->
+                <!--android:text="SMA"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="25sp" />-->
+        <!--</LinearLayout>-->
+
+        <!--<ImageButton-->
+            <!--android:id="@+id/main_activity_student_play_fragment1_with_friend_back"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:background="@android:color/transparent"-->
+            <!--android:contentDescription="@string/main_activity_student_play2_back_button"-->
+            <!--android:src="@drawable/back_button" />-->
+
+    <!--</LinearLayout>-->
 </android.support.constraint.ConstraintLayout>

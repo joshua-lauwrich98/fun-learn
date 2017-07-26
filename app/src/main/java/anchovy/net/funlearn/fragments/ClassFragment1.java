@@ -180,7 +180,7 @@ public class ClassFragment1 extends Fragment implements View.OnClickListener {
             ok.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    final String uid = input.getText().toString();
+                    final String uid = input.getText().toString().trim();
                     final String myUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
                     if (uid.isEmpty()) {
@@ -324,7 +324,7 @@ public class ClassFragment1 extends Fragment implements View.OnClickListener {
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
             DatabaseReference user = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
-            DatabaseReference classList = databaseReference.child("Class List").child(uid);
+            final DatabaseReference classList = databaseReference.child("Class List").child(uid);
             classList.child("name").setValue(nameInput.getText().toString());
             classList.child("uid").setValue(uid);
             classList.child("max").setValue(maxInput.getText().toString());
@@ -347,6 +347,8 @@ public class ClassFragment1 extends Fragment implements View.OnClickListener {
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     classList1.child("fullname").setValue(dataSnapshot.child("fullname").getValue().toString());
                     classList1.child("photo").setValue(dataSnapshot.child("photo").getValue().toString());
+                    classList1.child("uid").setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                    classList1.child("username").setValue(dataSnapshot.child("username").getValue().toString());
                 }
 
                 @Override

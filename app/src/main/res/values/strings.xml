@@ -168,8 +168,13 @@
     <string name="class_activity_dialog_create_post_back_title">Yakin ingin kembali?</string>
     <string name="class_activity_dialog_create_post_back_content">Data yang sudah diisi akan hilang.</string>
     <string name="class_activity_dialog_leave_class_back_title">Yakin ingin keluar kelas?</string>
-    <!-- TODO: change this to english -->
     <string name="class_activity_dialog_leave_class_back_content">Data berupa tugas, nilai, pertanyaan, dan komentar akan hilang.</string>
+    <string name="class_activity_class_info_fragment_created">DIBUAT :</string>
+    <string name="class_activity_class_info_fragment_total_question">JUMLAH PERTANYAAN :</string>
+    <string name="class_activity_class_info_fragment_total_member">JUMLAH ANGGOTA :</string>
+    <string name="class_activity_class_info_fragment_show_member">TUNJUKKAN ANGGOTA</string>
+    <string name="class_activity_class_info_fragment_hide_member">SEMBUNYIKAN ANGGOTA</string>
+    <string name="class_activity_class_info_fragment_leave">KELUAR</string>
 
     <!-- Other -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -181,4 +186,154 @@
     <string name="notification_add_friend_ticker">Anda memmiliki permintaan pertemanan!</string>
     <string name="notification_add_friend_content" formatted="false">%s mengirimkan anda permintaan pertemanan</string>
 
+    <!-- Materi Activity -->
+    <!-- Array -->
+    <string-array name="sd_class_expandable_drawer">
+        <item> Kelas 1 </item>
+        <item> Kelas 2 </item>
+        <item> Kelas 3 </item>
+        <item> Kelas 4 </item>
+        <item> Kelas 5 </item>
+        <item> Kelas 6 </item>
+    </string-array>
+
+    <string-array name="smp_class_expandable_drawer">
+        <item> Kelas 7 </item>
+        <item> Kelas 8 </item>
+        <item> Kelas 9 </item>
+    </string-array>
+
+    <string-array name="sma_class_expandable_drawer">
+        <item> Kelas 10 </item>
+        <item> Kelas 11 </item>
+        <item> Kelas 12 </item>
+    </string-array>
+
+    <string-array name="kelas1_mat_item_array">
+        <item> Menyebut </item>
+        <item> Penjumlahan dan Pengurangan </item>
+        <item> Perkenalan Bangun Ruang </item>
+        <item> Penjumlahan dan Pengurangan Mahir </item>
+        <item> Belajar Waktu </item>
+        <item> Perbandingan </item>
+        <item> Kenal Bangun Datar </item>
+    </string-array>
+
+    <string-array name="kelas2_mat_item_array">
+        <item> Perkalian dan Pembagian </item>
+        <item> Makna Lambang Bilangan </item>
+        <item> Membandingkan dan Mengurutkan Bilangan </item>
+        <item> Penjumlahan dan Pengurangan </item>
+        <item> Uang </item>
+        <item> Satuan Baku </item>
+        <item> Pecahan </item>
+    </string-array>
+
+    <string-array name="kelas3_mat_item_array">
+        <item> Keliling dan Luas Bangun Datar </item>
+        <item> Sifat Operasi Hitung </item>
+        <item> Garis Bilangan </item>
+        <item> Operasi Hitung Pada Pecahan </item>
+        <item> Satuan Tidak Baku </item>
+        <item> Simetri </item>
+        <item> Sudut </item>
+    </string-array>
+
+    <string-array name="kelas4_mat_item_array">
+        <item> Pecahan Senilai </item>
+        <item> Desimal dan Persen </item>
+        <item> Faktor dan Kelipatan </item>
+        <item> Bilangan Prima </item>
+        <item> FPB dan KPK </item>
+        <item> Pembulatan </item>
+        <item> Segi Banyak </item>
+    </string-array>
+
+    <string-array name="kelas5_mat_item_array">
+        <item> Pangkat dan Akar </item>
+        <item> Operasi Hitung Pecahan </item>
+        <item> Jarak, Waktu, dan Kecepatan </item>
+        <item> Posisi Benda Terhadap Mata Angin </item>
+        <item> Volume </item>
+    </string-array>
+
+    <string-array name="kelas6_mat_item_array">
+        <item> Bilangan Bulat Negatif </item>
+        <item> Operasi Hitung Pada Bilangan Negatif </item>
+        <item> Lingkaran </item>
+        <item> Diagonal Bidang dan Ruang </item>
+        <item> Ukuran Pemusatan Data Tunggal </item>
+    </string-array>
+
+    <string-array name="kelas1_bi_item_array">
+        <item> Mari Kita Berkenalan </item>
+    </string-array>
+
+    <string-array name="kelas7_item_array">
+        <item> Bilangan </item>
+        <item> Aljabar </item>
+        <item> Pertidaksamaan Linear </item>
+        <item> Himpunan </item>
+        <item> Garis dan Sudut </item>
+    </string-array>
+
+    <string-array name="kelas8_item_array">
+        <item> Relasi dan Fungsi </item>
+        <item> SPLDV </item>
+        <item> Teorema Pythagoras </item>
+        <item> Lingkaran </item>
+        <item> Kubus, Balok, Limas, dan Prisma </item>
+    </string-array>
+
+    <string-array name="kelas9_item_array">
+        <item> Kesebangunan </item>
+        <item> Tabung, Kerucut, dan Bola </item>
+        <item> Statistika </item>
+        <item> Peluang </item>
+        <item> Barisan dan Deret </item>
+    </string-array>
+
+
+    <!-- Preferences -->
+    <string name="setting_title">Pengaturan</string>
+    <string name="preference_account_title">Akun</string>
+    <string name="preference_account_change_pass">Ganti Password</string>
+    <string name="preference_account_change_pass_key">change_pass</string>
+    <string name="preference_account_logout">Keluarkan Akun</string>
+    <string name="preference_account_logout_key">logout</string>
+    <string name="preference_display_title">Tampilan</string>
+    <string name="preference_display_theme">Pilih Tema</string>
+    <string name="preference_display_theme_key">theme</string>
+    <string-array name="preference_theme_item">
+        <item>Terang</item>
+        <item>Gelap</item>
+    </string-array>
+    <string-array name="preference_theme_value">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string name="preference_display_language">Pilih Bahasa</string>
+    <string name="preference_display_language_key">language</string>
+    <string-array name="preference_language_item">
+        <item>Bahasa Indonesia</item>
+        <item>English(UK)</item>
+    </string-array>
+    <string-array name="preference_language_value">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string name="preference_notification_title">Pemberitahuan</string>
+    <string name="preference_notification_switch_key">notification</string>
+    <string name="preference_notification_switch_title">Pemberitahuan Baru</string>
+    <string name="preference_notification_ringtone_key">ringtone</string>
+    <string name="preference_notification_ringtone_title">Nada Bunyi</string>
+    <string name="preference_notification_vibrate_key">vibrate</string>
+    <string name="preference_notification_vibrate_title">Getaran</string>
+    <string name="preference_notification_sound_key">voice</string>
+    <string name="preference_notification_sound_title">Suara</string>
+
+    <string name="preference_account_change_pass_message">Yakin ingin ganti password?? Sebuah email akan dikirimkan pada email anda. Ikuti petunjuk yang ada pada email tersebut.</string>
+    <string name="preference_account_logout_message">Yakin ingin ganti akun?</string>
 </resources>

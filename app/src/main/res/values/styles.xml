@@ -13,6 +13,7 @@
         <item name="colorPrimaryDark">#56BAEC</item>
         <item name="colorAccent">#56BAEC</item>
         <item name="textColorError">#f73b11</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:windowBackground">@drawable/background_base</item>
         <item name="android:textColorHighlight">@color/password_normal</item>
         <item name="android:textColorLink">@color/password_strong</item>
@@ -52,5 +53,30 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">@color/colorPrimary</item>
     </style>
+
+    <style name="FunLearnDarkTheme" parent="Theme.AppCompat.NoActionBar" >
+        <item name="colorPrimary">#8F6048</item>
+        <item name="android:windowBackground">@color/background2</item>
+        <item name="android:colorBackground">@color/background2</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">#7EB5D6</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="android:colorForeground">@color/black</item>
+        <item name="android:textColorPrimaryInverse">@color/black</item>
+        <item name="android:textColorSecondary">@color/black</item>
+        <item name="android:textColorSecondaryInverse">@color/black</item>
+    </style>
+
+    <style name="FunLearnDarkTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorPrimary">#B4D8E7</item>
+        <item name="colorPrimaryDark">#56BAEC</item>
+        <item name="colorAccent">#56BAEC</item>
+        <item name="textColorError">#f73b11</item>
+        <item name="android:windowBackground">@drawable/background_base</item>
+        <item name="android:textColorHighlight">@color/password_normal</item>
+        <item name="android:textColorLink">@color/password_strong</item>
+    </style>
+
+    <style name="FunLearnDarkTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
 
 </resources>

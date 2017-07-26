@@ -52,20 +52,35 @@ public class LoginActivity extends AppCompatActivity implements StudentTypeSetup
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences preference = PreferenceManager.getDefaultSharedPreferences(this);
-        int theme = preference.getInt(THEME, 1);
+        int theme = Integer.parseInt(preference.getString(THEME, "1"));
 
-        if (theme == 1) setTheme(R.style.FunLearnLightTheme);
+        if (theme == 1){
+            setTheme(R.style.FunLearnLightTheme);
+        } else {
+            setTheme(R.style.FunLearnDarkTheme);
+        }
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
 
-        if (Build.VERSION.SDK_INT >= 23) {
-            getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar, getTheme()));
+        if (theme == 1) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar, getTheme()));
+            } else {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar));
+                }
+            }
         } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar));
+            if (Build.VERSION.SDK_INT >= 23) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar2, getTheme()));
+            } else {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar2));
+                }
             }
         }
+
+        setContentView(R.layout.activity_login);
 
         firebaseAuth = FirebaseAuth.getInstance();
 

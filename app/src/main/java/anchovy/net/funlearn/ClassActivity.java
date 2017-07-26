@@ -1,8 +1,10 @@
 package anchovy.net.funlearn;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -48,6 +50,8 @@ import anchovy.net.funlearn.fragments.HomeThreadFragment;
 public class ClassActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, CreateThreadFragment.DrawerLocked {
 
+    private static final String THEME = "theme";
+
     private DrawerLayout drawer;
     private String jenis, uid, title;
     private FloatingActionButton fab;
@@ -55,14 +59,35 @@ public class ClassActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        SharedPreferences preference = PreferenceManager.getDefaultSharedPreferences(this);
+        int theme = Integer.parseInt(preference.getString(THEME, "1"));
+
+        if (theme == 1){
+            setTheme(R.style.FunLearnLightTheme);
+        } else {
+            setTheme(R.style.FunLearnDarkTheme);
+        }
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_class);
 
-        if (Build.VERSION.SDK_INT >= 23) {
-            getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar, getTheme()));
+        if (theme == 1) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar, getTheme()));
+            } else {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar));
+                }
+            }
         } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar));
+            if (Build.VERSION.SDK_INT >= 23) {
+                getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar2, getTheme()));
+            } else {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    getWindow().setNavigationBarColor(getResources().getColor(R.color.navigationBar2));
+                }
             }
         }
 
@@ -110,7 +135,7 @@ public class ClassActivity extends AppCompatActivity
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (!dataSnapshot.hasChild(uid)) {
                     Toast.makeText(ClassActivity.this, getResources().getString(R.string.disband_class_announcement), Toast.LENGTH_SHORT).show();
-                    finish();
+                    ClassActivity.this.finish();
                 }
             }
 
@@ -225,26 +250,31 @@ public class ClassActivity extends AppCompatActivity
             fab.setVisibility(View.VISIBLE);
             status = false;
             status2 = true;
+            getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#000000\">" + getResources().getString(R.string.class_activity_announcement_title) + "</font>")));
             getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, AnnouncementFragment.newInstance(jenis, uid)).addToBackStack(null).commit();
         } else if (id == R.id.class_assignment) {
             fab.setVisibility(View.VISIBLE);
             status = false;
             status2 = true;
+            getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#000000\">" + getResources().getString(R.string.class_activity_assignment_title) + "</font>")));
             getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, AnnouncementFragment.newInstance(jenis, uid)).addToBackStack(null).commit();
         } else if (id == R.id.class_home) {
             fab.setVisibility(View.VISIBLE);
             status = false;
             status2 = true;
+            getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#000000\">" + getResources().getString(R.string.class_activity_main_menu_title) + "</font>")));
             getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, HomeThreadFragment.newInstance(jenis, uid)).addToBackStack(null).commit();
         } else if (id == R.id.class_make_question) {
             fab.setVisibility(View.GONE);
             status = true;
             status2 = true;
+            getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#000000\">" + getResources().getString(R.string.class_activity_make_question_title) + "</font>")));
             getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, CreateThreadFragment.newInstance(jenis, uid)).addToBackStack(null).commit();
         } else if (id == R.id.class_info) {
             fab.setVisibility(View.VISIBLE);
             status = false;
             status2 = true;
+            getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#000000\">" + getResources().getString(R.string.class_activity_class_info) + "</font>")));
             getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, ClassInfoFragment.newInstance(jenis, uid)).addToBackStack(null).commit();
         } else if (id == R.id.class_disband) {
             DialogFragment dialogFragment = CustomDialogDisbandClass.newInstance(uid);
@@ -254,6 +284,7 @@ public class ClassActivity extends AppCompatActivity
             fab.setVisibility(View.VISIBLE);
             status = false;
             status2 = true;
+            getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#000000\">" + title + "</font>")));
             getSupportFragmentManager().beginTransaction().replace(R.id.class_activity_container, AnnouncementFragment.newInstance(jenis, uid)).addToBackStack(null).commit();
         }
 
@@ -278,8 +309,8 @@ public class ClassActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
+    protected void onResume() {
+        super.onResume();
 
         FirebaseDatabase.getInstance().getReference().child("Statistic").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("status").setValue("online");
     }

@@ -39,6 +39,7 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import anchovy.net.funlearn.R;
+import anchovy.net.funlearn.SettingActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -125,6 +126,10 @@ public class ProfilFragment1 extends Fragment implements View.OnClickListener {
 
         ImageButton ownData = (ImageButton) view.findViewById(R.id.main_activity_profile_fragment_own_profile_button);
         ownData.setOnClickListener(this);
+
+        ImageButton setting = (ImageButton) view.findViewById(R.id.main_activity_profile_fragment_setting_button);
+        setting.setOnClickListener(this);
+
         return view;
     }
 
@@ -150,6 +155,12 @@ public class ProfilFragment1 extends Fragment implements View.OnClickListener {
             case R.id.main_activity_profile_fragment_own_profile_button :
                 getChildFragmentManager().beginTransaction().replace(R.id.main_activity_profile_fragment_detail_container, new ProfilFragmentOwnData())
                         .commit();
+                break;
+            case R.id.main_activity_profile_fragment_setting_button :
+                Intent settingIntent = new Intent();
+                settingIntent.setClassName(getContext(), "anchovy.net.funlearn.SettingActivity");
+                settingIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(settingIntent);
                 break;
         }
     }

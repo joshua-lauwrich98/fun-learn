@@ -43,6 +43,7 @@
         <activity
             android:name=".ClassActivity"
             android:label="@string/title_activity_class"
+            android:screenOrientation="portrait"
             android:theme="@style/FunLearnLightTheme" />
 
         <service
@@ -55,10 +56,17 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="anchovy.net.funlearn.receiver"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="anchovy.net.funlearn.receiver" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".MateriActivity" />
+        <activity android:name=".ExtraForPreferences"></activity>
+
+        <activity
+            android:name=".SettingActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
